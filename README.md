@@ -40,13 +40,13 @@ Kimya Fallah, Maurice Chouamou, Chase Johnson and David Metcalf
 <p>&nbsp;</p>
 
 ## Questions?
-  * **Kimya Fallah**[Kimyaf](https://github.com/Kimyaf)
+  * **Kimya Fallah** [Kimyaf](https://github.com/Kimyaf)
 
-  * **Maurice Chouamou**[mauricechouam](https://github.com/mauricechouam)
+  * **Maurice Chouamou** [mauricechouam](https://github.com/mauricechouam)
 
-  * **Chase Johnson**[chaseyb](https://github.com/chaseyb)
+  * **Chase Johnson** [chaseyb](https://github.com/chaseyb)
 
-  * **David Metcalf**[gloriousLoaf](https://github.com/gloriousLoaf)
+  * **David Metcalf** [gloriousLoaf](https://github.com/gloriousLoaf)
 
 
 <p>&nbsp;</p>
