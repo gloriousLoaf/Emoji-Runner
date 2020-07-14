@@ -6,15 +6,13 @@ class EnemyGround {
         // size of underlying circle, adjust as needed
         this.circ = 75;
         this.x = width;
-        this.y = height - 65; // so enemy isn't "floating"
+        this.y = height - 80; // slightly off bottom
     }
 
     // begins off right edge
     show() {
-        // placeholder shape for enemy
-        circle(this.x, this.y, this.circ);
-        // change to below: image(image var, top edge, left edge, width, height)
-        // image(enemyImg, this.x, this.y, this.circ, this.circ);
+        // args: image(image var, top edge, left edge, width, height);
+        image(enemyGrImg, this.x, this.y, this.circ, this.circ);
     }
 
     // adjust speed as needed

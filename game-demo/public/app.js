@@ -8,11 +8,15 @@ let enemies = [];
 let charImg;
 let enemyImg;
 let backImg;
+
 // adjust file name & path for images & uncomment
 function preload() {
-    // charImg = loadImage(`someEmoji.jpg`);
-    // enemyImg = loadImage(`someEnemy.jpg`);
-    // backImg = loadImage(`someBack.gif`);
+    /* we can get pretty granular here, preloading images for
+        all potential enemies (will need new classes for each) */
+    charImg = loadImage('./public/images/smile.gif');
+    enemyGrImg = loadImage('./public/images/poo.gif');
+    enemyAirImg = loadImage('./public/images/poo.gif');
+    backImg = loadImage('./public/images/desert.jpg');
 };
 
 // setup our game arena
@@ -20,6 +24,8 @@ function setup() {
     // adjust canvas size according to background gif
     createCanvas(900, 450);
     character = new Character();
+    // line up our second image, see below
+    x2 = width;
 };
 
 function resetSketch() {
@@ -33,16 +39,32 @@ function keyPressed() {
     if (key === ` ` || keyCode === UP_ARROW) {
         character.jump()
     }
-    // fire projectiles?? F key
+    // fire projectiles??
     if (keyCode === 70) {
         character.shoot() // not real yet
     }
 };
 
+// vars for background scroll
+let x = 0;
+let x2;
+let scroll = 4;
 // draws the scene in a loop, p5 functionality
 function draw() {
-    // background() method is touchy, more research?
-    background(`cyan`);
+    // background(backImg);  old - server static image
+    // create two background images
+    image(backImg, x, 0, width, height);
+    image(backImg, x2, 0, width, height);
+    // decrement values along x axis (move right to left)
+    x -= scroll;
+    x2 -= scroll;
+    // once the images have scrolled complete off, reset
+    if (x < -width) {
+        x = width;
+    }
+    if (x2 < -width) {
+        x2 = width;
+    }
     // add character
     character.show();
     character.move();
