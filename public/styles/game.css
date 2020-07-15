@@ -1,0 +1,14 @@
+/* This correspondes to game.handlebars,
+    adjust as needed, make it pretty! */ 
+html, body {
+    background-image: url("https://www.freegreatpicture.com/files/147/4706-background-color.jpg"); 
+    background-size: cover;
+}
+
+/* increase top margin from 50 to ?? to make space for logo? */ 
+canvas {
+    display: block;
+    margin: 50px auto;
+    border-radius: 10px;
+    border: groove 8px gold;
+}

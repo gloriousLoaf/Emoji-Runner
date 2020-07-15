@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- p5, p5.collide2d --}}
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5.collide2d@0.7.1/p5.collide2d.min.js"></script>
+    {{!-- stylesheet --}}
+    <link rel="stylesheet" href="./styles/game.css">
+    <title>Runner Test</title>
+</head>
+
+<body>
+
+    {{!-- these js files are in public folder. to change sprite images
+        and background, adjust the routes in app.js preload() function.
+        all images are in subfolders in public/images, mystic-forest is
+        the only one cropped to the current size of the game window. crop
+        images some, change game window size? to resize the window, see app.js:
+        function setup({ createCanvas(num, num) }) tweak those nums, but this
+        will change game physics, especially for player and flying enemies --}}
+
+    <script type="text/javascript" src="./classes/player/character.js"></script>
+    <script type="text/javascript" src="./classes/enemies/enemy-ground.js"></script>
+    <script type="text/javascript" src="./classes/enemies/enemy-air.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+
+</body>
+
+</html>
