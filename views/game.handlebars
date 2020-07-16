@@ -9,41 +9,40 @@
     <script src="https://cdn.jsdelivr.net/npm/p5.collide2d@0.7.1/p5.collide2d.min.js"></script>
     {{!-- stylesheet --}}
     <link rel="stylesheet" href="./styles/game.css">
-    <title>Runner Test</title>
+    <title>Emoji Runner | Game</title>
 </head>
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="navbar navbar-expand-lg navbar-dark justify-content-center">
-            <h1> <img
-                    src="https://i.pinimg.com/originals/2f/b0/24/2fb024fb7d3700e80b072b0ad2d2200c.gif"
-                    width="50" , height="60"></img>
-                <span class="fast-flicker"> Emoji
-                </span>-<span class="flicker"> Runner </span>
-            </h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar navbar-expand-lg navbar-dark justify-content-center">
+        <h1> <img src="https://i.pinimg.com/originals/2f/b0/24/2fb024fb7d3700e80b072b0ad2d2200c.gif" width="50" ,
+                height="60"></img>
+            <span class="fast-flicker"> Emoji
+            </span>-<span class="flicker"> Runner </span>
+        </h1>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav navmenu">
+            <a class="nav-item nav-link " href="/home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/profile">Runner<b class="font-bold">profile</b><span
+                    class="sr-only">(current)</span></a>
+            <a class="dropdown-item purchased" href="/">Runner<b class="font-bold">library</b><span
+                    class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link disabled" href="#">About</a>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav navmenu">
-                <a class="nav-item nav-link " href="/home">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/profile">Runner<b class="font-bold">profile</b><span
-                        class="sr-only">(current)</span></a>
-                <a class="dropdown-item purchased" href="/">Runner<b class="font-bold">library</b><span
-                        class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link disabled" href="#">About</a>
-            </div>
-            <div class="nav-item dropdown runner-nav-item">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false"><b class="runner-email font-semi">{{page.user.email}}</b><span
-                        class="sr-only">(current)</span></a>
-                <div class="dropdown-menu font-reg">
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
-                </div>
+        <div class="nav-item dropdown runner-nav-item">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                aria-expanded="false"><b class="runner-email font-semi">{{page.user.email}}</b><span
+                    class="sr-only">(current)</span></a>
+            <div class="dropdown-menu font-reg">
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
 <body>
 

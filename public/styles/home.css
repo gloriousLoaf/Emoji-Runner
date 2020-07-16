@@ -1,33 +1,32 @@
-.meme-link{
+.meme-link {
     height: 200px;
     width: 200px;
 }
-button{
+button {
     padding: 0;
     margin: 0;
     border: none;
 }
 
-body{
+body {
     background-image: url("https://www.freegreatpicture.com/files/147/4706-background-color.jpg"); 
     background-size: cover;
 }
-#imag{
+#image {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top:15px;
-   
+    margin-top: 15px;
 }
 
- h1{
-     text-align: center;
- }
+h1 {
+    text-align: center;
+}
 
- .navmenu li{
+.navmenu li {
      float: right;
      position: relative;
- }
+}
 
 
 .fa-meteor {
@@ -42,8 +41,6 @@ body{
     font-size: 75px;
     color:rgb(172, 171, 171);
 }
-
-
 
 p {
     margin: 0;
