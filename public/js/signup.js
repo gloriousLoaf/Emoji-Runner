@@ -21,50 +21,18 @@ $(document).ready(function () {
     passwordInput.val("");
   });
 
-  // Does a post to the signup route. If successful, we are redirected to the members page
+ // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function signUpUser(email, password) {
-    //if they input a correct manager key
-    if (
-      $(".manager-key")
-        .val()
-        .trim() === "Treighton"
-    ) {
-      $.post("/signup", {
-        email: email,
-        password: password,
-        isManager: true
+    $.post("/signup", {
+      email: email,
+      password: password
+    })
+      .then(function(data) {
+        window.location.replace("/");
+        // If there's an error, handle it by throwing up a bootstrap alert
       })
-        .then(function (user) {
-          //takes us back to the login page
-          window.location.assign("/");
-
-          // If there's an error, handle it by throwing up a bootstrap alert
-        })
-        .catch(handleLoginErr);
-    }
-    //if they leave manager key blank
-    else if (
-      $(".manager-key")
-        .val()
-        .trim() === ""
-    ) {
-      $.post("/signup", {
-        email: email,
-        password: password
-      })
-        .then(function (user) {
-          //takes us back to the login page
-          window.location.assign("/");
-
-          // If there's an error, handle it by throwing up a bootstrap alert
-        })
-        .catch(handleLoginErr);
-    }
-    //if they input incorrect manager key
-    else {
-      alert("INVALID MANAGER ADMIN KEY.");
-    }
+      .catch(handleLoginErr);
   }
 
   function handleLoginErr(err) {

@@ -12,3 +12,58 @@ canvas {
     border-radius: 10px;
     border: groove 8px gold;
 }
+/* Keyframe for text animation */
+.sign {
+    font-family: "Clip";
+    text-transform: uppercase;
+    font-size: 3em;
+    color: #b37b15;
+    text-shadow: 0 0 0.3rem #ffe6ff, 0 0 1.5rem black,
+      -0.2rem 0.1rem 1rem black, 0.2rem 0.1rem 1rem black,
+      0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+    animation: shine 2s forwards, flicker 3s infinite;
+  }
+  
+  @keyframes blink {
+    0%,
+    22%,
+    36%,
+    75% {
+      color: #152410;
+      text-shadow: 0 0 0.3rem #c4c711, 0 0 1.5rem black,
+        -0.2rem 0.1rem 1rem black, 0.2rem 0.1rem 1rem black,
+        0 -0.5rem 2rem black, 0 0.5rem 3rem black;
+    }
+    28%,
+    33% {
+      color: rgb(62, 182, 26);
+      text-shadow: none;
+    }
+    82%,
+    97% {
+      color: black;
+      text-shadow: none;
+    }
+  }
+  
+  .flicker {
+    animation: shine 5s forwards, blink 3s 1s infinite;
+  }
+  
+  .fast-flicker {
+    animation: shine 5s forwards, blink 3s 1s infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      color: rgb(175, 10, 10);
+      text-shadow: none;
+    }
+    100% {
+      color: #ffe6ff;
+      text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem rgb(89, 192, 29),
+        -0.2rem 0.1rem 1rem black, 0.2rem 0.1rem 1rem black,
+        0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+    }
+  }
+  

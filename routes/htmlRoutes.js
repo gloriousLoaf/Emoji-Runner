@@ -45,7 +45,7 @@ module.exports = (app) => {
     //remember to store the id variable somewhere
     let meme;
     let user;
-    db.Memes.findAll({
+    db.runner.findAll({
       order: [["cost", "ASC"]]
     }).then((data) => {
 
