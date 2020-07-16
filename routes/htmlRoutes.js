@@ -43,13 +43,13 @@ module.exports = (app) => {
   app.get("/home", (req, res) => {
     //we will parse out the id later for addition use
     //remember to store the id variable somewhere
-    let meme;
+    let run;
     let user;
     db.runner.findAll({
       order: [["cost", "ASC"]]
     }).then((data) => {
 
-      meme = data;
+      run = data;
       db.User.findOne({
         where: {
           id: req.user.id
@@ -58,7 +58,7 @@ module.exports = (app) => {
         user = data;
 
         var pageContent = {
-          meme: meme,
+          run: run,
           user: user
         };
         res.render("home", { page: pageContent });
@@ -68,11 +68,11 @@ module.exports = (app) => {
 
   /* BASICALLY EVERYTHING BELOW HERE IS JUSTIN'S STUFF - CAN WE TWEAK IT? */
 
-  //route to filter out the memes based on lvl
+  //route to filter out the runner based on lvl
   app.get("/home/:lvl", (req, res) => {
-    let meme;
+    let run;
     let user;
-    db.Memes.findAll({
+    db.runner.findAll({
       where: {
         lvl: req.params.lvl
       },
@@ -80,7 +80,7 @@ module.exports = (app) => {
 
     }).then((data) => {
 
-      meme = data;
+      run = data;
       db.User.findOne({
         where: {
           id: req.user.id
@@ -89,7 +89,7 @@ module.exports = (app) => {
         user = data;
 
         let pageContent = {
-          meme: meme,
+          run: run,
           user: user
         };
         res.render("home", { page: pageContent });
@@ -100,13 +100,13 @@ module.exports = (app) => {
 
 
 
-  //this is for the purchased memes, again passing the id so we know which mean belongs to the user
+  //this is for the purchased runner, again passing the id so we know which mean belongs to the user
   app.get("/purchased", (req, res) => {
     //we will parse out the id later for addition use
     //remember to store the id variable somewhere
     let purchasedMeme;
     let user;
-    db.Boughten_Memes.findAll({
+    db.Boughten_runner.findAll({
       where: {
         UserId: req.user.id
       }
@@ -120,7 +120,7 @@ module.exports = (app) => {
         user = data;
 
         let pageContent = {
-          meme: purchasedMeme,
+          run: purchasedMeme,
           user: user
         };
         res.render("purchased", { page: pageContent });
@@ -177,12 +177,12 @@ module.exports = (app) => {
 
   ///=====BATTLE STUFF=====///
 
-  ///build html route to load battle page with the users meme as a data block for handlebars
+  ///build html route to load battle page with the users run as a data block for handlebars
   app.get("/battle/select/:lvl", (req, res) => {
     let selection;
     let heros;
 
-    db.Boughten_Memes.findAll({
+    db.Boughten_runner.findAll({
       where: {
         lvl: req.params.lvl,
         UserId: req.user.id
@@ -191,7 +191,7 @@ module.exports = (app) => {
       heros = data;
     });
 
-    db.Memes.findAll({
+    db.runner.findAll({
       where: {
         lvl: req.params.lvl
       }
@@ -201,7 +201,7 @@ module.exports = (app) => {
         heros: heros,
         enemies: enemies
       };
-      res.render("battleSelect", { memes: selection });
+      res.render("battleSelect", { runner: selection });
     });
   });
 

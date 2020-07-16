@@ -2,29 +2,24 @@ $(document).ready(function () {
   //calls loadPoints on load
   loadUserData();
 
-  //executes if a meme is bought
+  //executes if a runner is bought
   $(".buy").on("click", function () {
-    var currentPoints = $("#meme-points").text();
+    var currentPoints = $("#runner-points").text();
     var cost = $(this).attr("cost");
     if (currentPoints - cost < 0) {
-      alert("Insufficent Meme Tokens");
+      alert("Insufficent runner Tokens");
     } else {
-      var boughtMeme = {
+      var boughtrunner = {
         name: $(this).attr("name"),
         link: $(this).attr("link"),
         lvl: $(this).attr("lvl"),
-        ac: $(this).attr("ac"),
-        attack_power: $(this).attr("attack"),
-        health_points: $(this).attr("health"),
-        cost: cost,
-        dice_value: $(this).attr("dice"),
         UserId: $(this).attr("UserId")
       };
 
       //now that we have all the data, send a post to the database
       $.ajax("/api/user/id", {
         type: "POST",
-        data: boughtMeme
+        data: boughtrunner
       }).then(function (data) {
         var newPoints = {
           points: currentPoints - cost
@@ -34,7 +29,7 @@ $(document).ready(function () {
           type: "PUT",
           data: newPoints
         }).then(function (data) {
-          $("#meme-points").text(data.points);
+          $("#runner-points").text(data.points);
           location.reload();
         });
       });
@@ -47,7 +42,7 @@ $(document).ready(function () {
     }).then(function (user) {
       //this needs to be an array because that is what is returned
       //gives data to the points section
-      $("#meme-points").text(user[0].points);
+      $("#runner-points").text(user[0].points);
 
       //give foreign key to all buttons
       $(".buy").attr("UserId", user[0].id);
@@ -56,7 +51,7 @@ $(document).ready(function () {
     });
   }
 
-  //refreshes the submit button so it filters out the memes based on the meme lvl
+  //refreshes the submit button so it filters out the runners based on the runner lvl
   $("#refreshButton").on("click", function (e) {
     e.preventDefault();
 

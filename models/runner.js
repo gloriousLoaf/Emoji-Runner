@@ -3,11 +3,9 @@ module.exports = function(sequelize, DataTypes) {
   var runner = sequelize.define("runner", {
     name: DataTypes.STRING,
     lvl: DataTypes.INTEGER,
-    ac: DataTypes.INTEGER,
-    attack_power: DataTypes.INTEGER,
-    health_points: DataTypes.INTEGER,
+    Points: DataTypes.INTEGER,
     cost: DataTypes.INTEGER,
-    dice_value: DataTypes.INTEGER
+   
   });
 
   return runner;
