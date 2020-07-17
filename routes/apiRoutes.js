@@ -6,7 +6,7 @@ module.exports = (app) => {
   //this portion of code is all for passport to work
 
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
- 
+
     //sent back the current logged in users data
     const user = {
       isManager: req.user.isManager,

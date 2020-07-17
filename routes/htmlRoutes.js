@@ -159,7 +159,7 @@ module.exports = (app) => {
       where: {
         id: req.user.id
       }
-    }).then( (data) => {
+    }).then((data) => {
       res.render("profile", { user: data });
     });
   });
@@ -169,7 +169,7 @@ module.exports = (app) => {
       where: {
         id: req.user.id
       }
-    }).then( (data) => {
+    }).then((data) => {
       res.render("upgrade-click-buttons", { user: data });
     });
   });
