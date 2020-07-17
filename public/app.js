@@ -4,11 +4,6 @@
 let character;
 let enemies = [];
 
-// vars for character, enemy & background images
-let charImg;
-let enemyImg;
-let backImg;
-
 // adjust file name & path for images & uncomment
 function preload() {
     /* we can get pretty granular here, preloading images for
@@ -24,9 +19,19 @@ function setup() {
     // adjust canvas size according to background gif
     createCanvas(900, 450);
     character = new Character();
+    // scoreboard counter in var for start/stop
+    runScore = setInterval(scoreCounter, 100);
     // line up our second image, see below
     x2 = width;
 };
+
+// scoreboard
+let counter = 0;
+function scoreCounter() {
+    let userScore = select("#scoreboard");
+    counter++;
+    userScore.html(counter);
+}
 
 function resetSketch() {
     /* blank for now, future home of more complex functions? like score saving,
@@ -78,6 +83,7 @@ function draw() {
         // if you hit any enemy, kill loop (and trigger whatever events)
         if (character.hits(i)) {
             noLoop();
+            clearInterval(runScore);
             playAgain();
         }
     }

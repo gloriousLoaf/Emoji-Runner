@@ -1,88 +1,44 @@
 /* This correspondes to game.handlebars,
     adjust as needed, make it pretty! */ 
+
+@font-face {
+font-family: Digital;
+src: url('../fonts/digital-7.ttf');
+}
+  
 html, body {
     background-image: url("https://www.freegreatpicture.com/files/147/4706-background-color.jpg"); 
     background-size: cover;
 }
-
-footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%; 
-  color: white;
-  text-align: center;
-}
-
-/* increase top margin from 50 to ?? to make space for logo? */ 
+  
+  /* increase top margin from 50 to ?? to make space for logo? */ 
 canvas {
     display: block;
-    margin: 50px auto;
+    margin: auto;
     border-radius: 10px;
     border: groove 8px gold;
 }
-
-nav{
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom: 2px solid #5f0505;
-  box-shadow: 15px 15px 15px #381803;
+  
+#score {
+    margin: 10px 105px 2px 0;
+    margin-right: 105px;
 }
-/* Keyframe for text animation */
-.sign {
-    font-family: "Clip";
-    text-transform: uppercase;
-    font-size: 3em;
-    color: #b37b15;
-    text-shadow: 0 0 0.3rem #ffe6ff, 0 0 1.5rem black,
-      -0.2rem 0.1rem 1rem black, 0.2rem 0.1rem 1rem black,
-      0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
-    animation: shine 2s forwards, flicker 3s infinite;
-  }
   
+#scoreBlack {
+    background-color: rgb(25, 0, 0);
+    border-radius: 8px;
+}
+  
+#scoreboard {
+    font-family: Digital;
+    color: yellow;
+    font-size: 1.5em;
+    padding: 4px;
+    width: 10rem;
+    margin-left: 15px;
+}
 
-  
-  
-  @keyframes blink {
-    0%,
-    22%,
-    36%,
-    75% {
-      color: #152410;
-      text-shadow: 0 0 0.3rem #c4c711, 0 0 1.5rem black,
-        -0.2rem 0.1rem 1rem black, 0.2rem 0.1rem 1rem black,
-        0 -0.5rem 2rem black, 0 0.5rem 3rem black;
-    }
-    28%,
-    33% {
-      color: rgb(62, 182, 26);
-      text-shadow: none;
-    }
-    82%,
-    97% {
-      color: black;
-      text-shadow: none;
-    }
+footer {
+    color: white;
+    text-align: center;
   }
-  
-  .flicker {
-    animation: shine 5s forwards, blink 3s 1s infinite;
-  }
-  
-  .fast-flicker {
-    animation: shine 5s forwards, blink 3s 1s infinite;
-  }
-  
-  @keyframes shine {
-    0% {
-      color: rgb(175, 10, 10);
-      text-shadow: none;
-    }
-    100% {
-      color: #ffe6ff;
-      text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem rgb(89, 192, 29),
-        -0.2rem 0.1rem 1rem black, 0.2rem 0.1rem 1rem black,
-        0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
-    }
-  }
-  

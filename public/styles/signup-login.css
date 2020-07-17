@@ -9,7 +9,6 @@ body{
   
   h2,h1,p,h5 {
       color: whitesmoke;
-      font-family: "ChakraPetch-Bold"
   }
   P{
     font-size: 25px;
@@ -34,15 +33,10 @@ body{
   
   .name-title {
       font-size: 65px;
-      font-family: "ChakraPetch-Light";
   }
-  
-  .font-bold {
-      font-family: "ChakraPetch-Bold";
-  }
+
   
   .font-light {
-      font-family: "ChakraPetch-Light";
       text-decoration: none;
   }
   
@@ -59,7 +53,6 @@ body{
   .here-link {
       color: #cc250f;
       transition: .3s;
-      font-family: "ChakraPetch-SemiBold";
   }
   
   .here-link:hover {
@@ -149,11 +142,3 @@ body{
     }
   }
   
-  footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%; 
-    color: white;
-    text-align: center;
-  }

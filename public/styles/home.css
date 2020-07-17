@@ -130,7 +130,6 @@ img {
 }
 h2,h1,p,h5 {
     color: whitesmoke;
-    font-family: "ChakraPetch-Bold"
 }
 P{
   font-size: 25px;
@@ -167,15 +166,7 @@ nav{
       text-shadow: none;
     }
   }
-  footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%; 
-    color: white;
-    text-align: center;
-    padding-top: 60px;
-  }
+ 
   
   .flicker {
     animation: shine 5s forwards, blink 3s 1s infinite;

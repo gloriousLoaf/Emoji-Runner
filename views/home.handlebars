@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Emoji Runner | Home Page</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../styles/nav.css">
+
     <link rel="stylesheet" href="../styles/home.css">
     {{!-- Bootstrap Link --}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+</head>
+
+<body class="container-fluid">
 
     <!-- nav bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -30,7 +33,7 @@
                 <a class="dropdown-item  " href="#">Home<span class="sr-only">(current)</span></a>
                 <a class="dropdown-item " href="/profile">User<b class="font-bold">Profile</b><span
                         class="sr-only">(current)</span></a>
-                <a class="dropdown-item purchased " href="/purchased">User<b class="font-bold">ibrary</b><span
+                <a class="dropdown-item purchased " href="/purchased">User<b class="font-bold">Library</b><span
                         class="sr-only">(current)</span></a>
                 <a class="dropdown-item" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
                 <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false"><b
@@ -39,28 +42,21 @@
         </div>
     </nav>
 
-
-</head>
-
-<body class="container-fluide">
-
-
-
-    <button id="image">
+    <button class="btn-lg btn-dark mt-5 pt-4" id="image" style="border-radius: 10px;">
         <a href=" /game"> <img src="https://www.poundslots.com/wp-content/uploads/2017/03/button-play-now-games.gif"
-                width="300" height="100">
+                width="300" height="100" style="border-radius: 10px;">
             </img></a>
     </button>
 
-    <footer class="=footer bottom">
-        <h5>&copyCopyright Built From Scratch By David,Chase, Kimya and Maurice</h5>
+    <footer class="footer fixed-bottom text-center text-white">
+        <h5>&copyCopyright 2020 Built From Scratch By David, Chase, Kimya and Maurice</h5>
     </footer>
 
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <script src="../js/home.js"></script>
+
 </body>
 
 </html>

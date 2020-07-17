@@ -1,3 +1,4 @@
+/* NOT IN USE YET, linked at bottom of profile.handlebars */
 $(document).ready(function () {
   $("#form")
     .validator()

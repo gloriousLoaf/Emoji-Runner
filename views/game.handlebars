@@ -8,9 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5.collide2d@0.7.1/p5.collide2d.min.js"></script>
     {{!-- stylesheet --}}
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../styles/nav.css">
     <link rel="stylesheet" href="./styles/game.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+
     <title>Emoji Runner | Game</title>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="navbar navbar-expand-lg navbar-dark justify-content-center">
@@ -27,8 +27,8 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav navmenu">
-                <a class="dropdown-item  " href="/home">Home<span class="sr-only">(current)</span></a>
-                <a class="dropdown-item " href="/profile">User<b class="font-bold">Profile</b><span
+                <a class="dropdown-item" href="/home">Home<span class="sr-only">(current)</span></a>
+                <a class="dropdown-item" href="/profile">User<b class="font-bold">Profile</b><span
                         class="sr-only">(current)</span></a>
                 <a class="dropdown-item purchased " href="/purchased">User<b class="font-bold">ibrary</b><span
                         class="sr-only">(current)</span></a>
@@ -42,8 +42,19 @@
 
 
 <body>
-    <footer class="=footer bottom">
-        <h5>&copyCopyright Built From Scratch By David,Chase, Kimya and Maurice</h5>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm" id="score">
+                <div class="card d-flex flex-row float-right" id="scoreBlack">
+                    <div class="card-body" id="scoreboard">Score</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer fixed-bottom text-center">
+        <h5>&copyCopyright 2020 Built From Scratch By David, Chase, Kimya and Maurice</h5>
     </footer>
 
     {{!-- these js files are in public folder. to change sprite images
