@@ -1,6 +1,9 @@
 .card {
+  background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/caput-mortuum-brown-abstract-low-polygon-background-aloysius-patrimonio.jpg");
+  border-radius: 30px;
+  border: 2px solid #5f0505;
+  box-shadow: 15px 15px 15px #381803;
     color: whitesmoke;
-    background-color: rgb(152, 165, 148);
     margin: 0px 15px 15px 15px;
     -webkit-box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
@@ -16,10 +19,12 @@ body{
     z-index: 99;
 }
 
-.list-group,
+
 .list-group-item {
-    /* background-color: rgb(114, 114, 114); */
-    background-color: rgb(152, 165, 148);;
+  background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/caput-mortuum-brown-abstract-low-polygon-background-aloysius-patrimonio.jpg");
+  border-radius: 30px;
+  border: 2px solid #5f0505;
+  box-shadow: 15px 15px 15px #381803;
 }
 
 .card-link {
@@ -55,15 +60,26 @@ body{
 }
 
 
-h2,h1,p {
-    color: whitesmoke;
-    
+h2,h1,p,h5 {
+  color: whitesmoke;
+  font-family: "ChakraPetch-Bold"
 }
+    
+
 P{
   font-size: 15px;
 }
 h1{
   font-size: 60px;
+}
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; 
+  color: white;
+  text-align: center;
+  
 }
 @font-face {
   font-family: Clip;
@@ -121,5 +137,35 @@ h1{
     text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem rgb(89, 192, 29),
       -0.2rem 0.1rem 1rem black, 0.2rem 0.1rem 1rem black,
       0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+  }
+}
+nav{
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom: 2px solid #5f0505;
+  box-shadow: 15px 15px 15px #381803;
+}
+
+/*Media Section*/
+
+@media (max-width: 1024px) {
+  footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%; 
+    color: white;
+    text-align: center;
+  }
+}
+
+@media (min-width: 769px) {
+  footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%; 
+    color: white;
+    text-align: center;
   }
 }

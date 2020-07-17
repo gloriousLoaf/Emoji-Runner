@@ -5,12 +5,28 @@ html, body {
     background-size: cover;
 }
 
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; 
+  color: white;
+  text-align: center;
+}
+
 /* increase top margin from 50 to ?? to make space for logo? */ 
 canvas {
     display: block;
     margin: 50px auto;
     border-radius: 10px;
     border: groove 8px gold;
+}
+
+nav{
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom: 2px solid #5f0505;
+  box-shadow: 15px 15px 15px #381803;
 }
 /* Keyframe for text animation */
 .sign {
@@ -23,6 +39,9 @@ canvas {
       0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
     animation: shine 2s forwards, flicker 3s infinite;
   }
+  
+
+  
   
   @keyframes blink {
     0%,

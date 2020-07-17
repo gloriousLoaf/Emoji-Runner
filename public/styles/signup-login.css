@@ -7,7 +7,7 @@ body{
     line-height: 2.5;
   }
   
-  h2,h1,p {
+  h2,h1,p,h5 {
       color: whitesmoke;
       font-family: "ChakraPetch-Bold"
   }
@@ -76,7 +76,7 @@ body{
     color: whitesmoke;
     display: block;
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 50px;
   
    
    
@@ -149,3 +149,11 @@ body{
     }
   }
   
+  footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%; 
+    color: white;
+    text-align: center;
+  }

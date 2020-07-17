@@ -15,131 +15,113 @@
 
     <title>Emoji Runner | Profile</title>
 </head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar navbar-expand-lg navbar-dark justify-content-center">
+        <h1> <img src="https://i.pinimg.com/originals/2f/b0/24/2fb024fb7d3700e80b072b0ad2d2200c.gif" width="50" ,
+                height="60"></img>
+            <span class="fast-flicker"> Emoji
+            </span>-<span class="flicker"> Runner </span>
+        </h1>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav navmenu">
+            <a class="dropdown-item  " href="/home">Home<span class="sr-only">(current)</span></a>
+            <a class="dropdown-item " href="#">User<b class="font-bold">Profile</b><span
+                    class="sr-only">(current)</span></a>
+            <a class="dropdown-item purchased " href="/purchased">User<b class="font-bold">Library</b><span
+                    class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false"><b
+                    class="runner-email font-semi">{{user.email}}</b><span class="sr-only">(current)</span></a>
+        </div>
+    </div>
+</nav>
 
 <body>
     <div class="container">
-        <div class="sign">
-            <h1> <img src="https://i.pinimg.com/originals/2f/b0/24/2fb024fb7d3700e80b072b0ad2d2200c.gif" width="50" ,
-                    height="60"></img><span class="fast-flicker"> Emoji </span>-<span class="flicker"> Runner </span>
-            </h1>
-        </div>
 
-    </div>
-    </div>
-
-    <nav class="navbar navbar-expand-lg navbar-dark runner-nav">
-        <button class="navbar-toggler justify-content-center" type="button" data-toggle="collapse"
-            data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown runner-nav-item">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="true" aria-expanded="false"><b
-                            class="runner-email font-semi">{{user.email}}</b><span class="sr-only">(current)</span></a>
-                    <div class="dropdown-menu font-reg">
-                        <a class="dropdown-item" href="/profile">runner<b class="font-bold">profile</b><span
-                                class="sr-only">(current)</span></a>
-                        <a class="dropdown-item purchased" href="/purchased">runner<b class="font-bold">library</b><span
-                                class="sr-only">(current)</span></a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
-                    </div>
-                </li>
-
-
-
-
-        </div>
-        </ul>
-        </div>
-    </nav>
-
-
-    {{!-- Stuff in the "real" body --}}
-    <div class="container profile-content">
-        <br>
-        <br>
-        <div class="row">
-            <div class="col-6 col-md-4">
-                <div class="card card-profile" style="width: 22rem;">
-
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item shady">
+        {{!-- Stuff in the "real" body --}}
+        <div class="container profile-content">
+            <br>
+            <br>
+            <div class=" container row">
+                <div class=" col-lg-7">
+                    <div class="card">
+                        <div class=" card-body">
                             <p><b class="font-bold">EMAIL:</b> <span
                                     class="runner-email font-semi">{{user.email}}</span>
                             </p>
-                        </li>
+                        </div>
+                        <hr>
 
-                        <li class="list-group-item">
+                        <div class="card-body">
                             <p><b class="font-bold">JOINED AT:</b></p>
                             <p><i>{{user.createdAt}}</i></p>
-                        </li>
-                        <li class="list-group-item">
+                        </div>
+                        <hr>
+
+                        <div class="card-body">
                             <p><b class="font-bold">LAST ACTIVE AT:</b></p>
                             <p><i>{{user.updatedAt}}</i></p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-md-8">
-                <div class="card card-profile">
-                    {{!-- <div class="card-header">
-
-                    </div> --}}
-                    <div class="card-body">
-                        {{!-- <h5 class="card-title"></h5> --}}
-                        <p class="card-text font-light"><b class="font-bold">RANK:</b> {{user.wins}} / 10</p>
-                        <div class="container">
-
-
                         </div>
                     </div>
                 </div>
-                <div class="card card-profile">
-                    {{!-- <div class="card-header">
+
+                <div class="col-lg-5">
+                    <div class="card card-profile">
+                        <div class="card-body">
+                            {{!-- <h5 class="card-title"></h5> --}}
+                            <p class="card-text font-light"><b class="font-bold">WINS:</b> {{user.clickPower}}</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-profile">
+                        <div class="card-body">
+                            {{!-- <h5 class="card-title"></h5> --}}
+                            <p class="card-text font-light"><b class="font-bold">GAME LEVEL:</b> {{user.clickPower}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card card-profile">
+                        <div class="card-body">
+                            {{!-- <h5 class="card-title"></h5> --}}
+                            <p class="card-text font-light"><b class="font-bold">TOTAL POINTS :</b> {{user.wins}}
+                                {{!-- {{user.wins}} --}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-profile">
+                        {{!-- <div class="card-header">
 
                     </div> --}}
-                    <div class="card-body">
-                        {{!-- <h5 class="card-title"></h5> --}}
-                        <p class="card-text font-light"><b class="font-bold">GAME LEVEL:</b> {{user.clickPower}}</p>
+                        <div class="card-body">
+                            {{!-- <h5 class="card-title"></h5> --}}
+
+                            <p class="card-text font-light"><b class="font-bold">???????</b> {{user.loss}}
+                                {{!-- {{user.losses}} --}}
+
+                            </p>
+                        </div>
                     </div>
+
                 </div>
-                <div class="card card-profile">
-
-                    <div class="card-body">
-                        {{!-- <h5 class="card-title"></h5> --}}
-
-                        <p class="card-text font-light"><b class="font-bold">TOTAL POINTS</b> {{user.wins}}
-                            {{!-- {{user.wins}} --}}
-                        </p>
-                    </div>
-                </div>
-                <div class="card card-profile">
-                    {{!-- <div class="card-header">
-
-                    </div> --}}
-                    <div class="card-body">
-                        {{!-- <h5 class="card-title"></h5> --}}
-
-                        <p class="card-text font-light"><b class="font-bold">???????</b> {{user.loss}}
-                            {{!-- {{user.losses}} --}}
-
-                        </p>
-                    </div>
-                </div>
-
             </div>
+
+            <footer class="=footer bottom">
+                <h5>&copyCopyright Built From Scratch By David,Chase, Kimya and Maurice</h5>
+            </footer>
         </div>
-    </div>
 
 
 
 
-    {{!-- {{#each runner}}
+        {{!-- {{#each runner}}
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -161,7 +143,7 @@
     </div>
     {{/each}} --}}
 
-    <script src="../js/purchased.js"></script>
+        <script src="../js/purchased.js"></script>
 </body>
 
 </html>

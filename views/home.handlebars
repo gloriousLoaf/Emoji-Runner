@@ -11,14 +11,12 @@
     <link rel="stylesheet" href="../styles/home.css">
     {{!-- Bootstrap Link --}}
 
-</head>
-
-<body>
-
+    <!-- nav bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="navbar navbar-expand-lg navbar-dark justify-content-center">
-            <h1><img src="https://i.pinimg.com/originals/2f/b0/24/2fb024fb7d3700e80b072b0ad2d2200c.gif" width="50" ,
-                    height="60"></img><span class="fast-flicker"> Emoji
+            <h1> <img src="https://i.pinimg.com/originals/2f/b0/24/2fb024fb7d3700e80b072b0ad2d2200c.gif" width="50" ,
+                    height="60"></img>
+                <span class="fast-flicker"> Emoji
                 </span>-<span class="flicker"> Runner </span>
             </h1>
         </div>
@@ -26,26 +24,26 @@
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+        <div class="collapse navbar-collapse d-lg-block" id="navbarNavAltMarkup">
             <div class="navbar-nav navmenu">
-                <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/profile">Runner<b class="font-bold">profile</b><span
+                <a class="dropdown-item  " href="#">Home<span class="sr-only">(current)</span></a>
+                <a class="dropdown-item " href="/profile">User<b class="font-bold">Profile</b><span
                         class="sr-only">(current)</span></a>
-                <a class="dropdown-item purchased mt-1" href="/purchased">Runner<b class="font-bold">library</b><span
+                <a class="dropdown-item purchased " href="/purchased">User<b class="font-bold">ibrary</b><span
                         class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link disabled" href="#">About</a>
-            </div>
-            <div class="nav-item dropdown runner-nav-item">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false"><b class="runner-email font-semi">{{user.email}}</b><span
-                        class="sr-only">(current)</span></a>
-                <div class="dropdown-menu font-reg">
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
-                </div>
+                <a class="dropdown-item" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false"><b
+                        class="runner-email font-semi">{{user.email}}</b><span class="sr-only">(current)</span></a>
             </div>
         </div>
     </nav>
+
+
+</head>
+
+<body class="container-fluide">
+
 
 
     <button id="image">
@@ -53,6 +51,10 @@
                 width="300" height="100">
             </img></a>
     </button>
+
+    <footer class="=footer bottom">
+        <h5>&copyCopyright Built From Scratch By David,Chase, Kimya and Maurice</h5>
+    </footer>
 
 
 
