@@ -27,6 +27,11 @@ module.exports = (app) => {
     res.render("sign-up");
   });
 
+  // this loads the store
+  app.get("/store", (req, res) => {
+    res.render("store");
+  });
+
   //this will load the manager page
   app.get("/manager", (req, res) => {
     db.User.findOne({
