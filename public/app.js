@@ -1,8 +1,10 @@
 /* No arrow functions, classes use (this) keyword */
 
-// the player & enemies
+// the player, enemies & levels
 let character;
 let enemies = [];
+let backImg;
+let levelCounter = 0;
 
 // adjust file name & path for images & uncomment
 function preload() {
@@ -12,6 +14,69 @@ function preload() {
     enemyGrImg = loadImage('./images/enemies/devil.gif');
     enemyAirImg = loadImage('./images/enemies/ghost.gif');
     backImg = loadImage('./images/backgrounds/mystic-forest.jpg');
+};
+
+/* called first in draw, run backgrounds, check where they are in scroll,
+    call levelSwitch() to see when to change */
+function levelScroll() {
+    // create two background images
+    image(backImg, x, 0, width, height);
+    image(backImg, x2, 0, width, height);
+    // decrement values along x axis (move right to left)
+    x -= scroll;
+    x2 -= scroll;
+    // once the images have scrolled complete off, reset
+    if (x < -width) {
+        x = width;
+        levelCounter++;
+        console.log(levelCounter);
+        levelSwitch(levelCounter);
+    }
+    if (x2 < -width) {
+        x2 = width;
+        levelCounter++;
+        console.log(levelCounter);
+        levelSwitch(levelCounter);
+    }
+}
+
+// switch case to change levels and enemies!
+function levelSwitch(levelCounter) {
+    switch(true) {
+        case (levelCounter >= 9 && levelCounter < 19):
+            backImg = loadImage('./images/backgrounds/pink-mountains.jpg');
+            enemyGrImg = loadImage('./images/enemies/robot.gif');
+            enemyAirImg = loadImage('./images/enemies/ghost.gif');
+            break;
+        case (levelCounter >= 19 && levelCounter < 29):
+            backImg = loadImage('./images/backgrounds/winter.jpg');
+            enemyGrImg = loadImage('./images/enemies/poo.gif');
+            enemyAirImg = loadImage('./images/enemies/robot.gif');
+            break;
+        case (levelCounter >= 29 && levelCounter < 39):
+            backImg = loadImage('./images/backgrounds/ocean.jpg');
+            enemyGrImg = loadImage('./images/enemies/ghost.gif');
+            enemyAirImg = loadImage('./images/enemies/poo.gif');
+            break;
+        // for now, at 49+ it just keeps playing indefinitely
+        case (levelCounter >= 39 && levelCounter < 49):
+            backImg = loadImage('./images/backgrounds/lava.jpg');
+            enemyGrImg = loadImage('./images/enemies/devil.gif');
+            enemyAirImg = loadImage('./images/enemies/ghost.gif');
+            break;
+        /* HERE could trigger win with some function? */
+        // case (levelCounter >= 49):
+        //     writeYouWonFunc();
+        //     break;
+        // OR...
+        /* RESTART from level one and keep scoring points! */
+        // case (levelCounter >= 49):
+        //     levelCounter = 0;
+        //     backImg = loadImage('./images/backgrounds/mystic-forest.jpg');
+        //     enemyGrImg = loadImage('./images/enemies/devil.gif');
+        //     enemyAirImg = loadImage('./images/enemies/ghost.gif');
+        //     break;
+    }
 };
 
 // setup our game arena
@@ -25,8 +90,9 @@ function setup() {
     x2 = width;
 };
 
+
 // scoreboard
-let counter = 0;
+let counter = 0; // send to database at gameover
 function scoreCounter() {
     let userScore = select("#scoreboard");
     counter++;
@@ -36,7 +102,7 @@ function scoreCounter() {
 function resetSketch() {
     /* blank for now, future home of more complex functions? like score saving,
         options to redirect to home etc. see playAgain() below */
-}
+};
 
 // player controls
 function keyPressed() {
@@ -56,20 +122,8 @@ let x2;
 let scroll = 4;
 // draws the scene in a loop, p5 functionality
 function draw() {
-    // background(backImg);  old - server static image
-    // create two background images
-    image(backImg, x, 0, width, height);
-    image(backImg, x2, 0, width, height);
-    // decrement values along x axis (move right to left)
-    x -= scroll;
-    x2 -= scroll;
-    // once the images have scrolled complete off, reset
-    if (x < -width) {
-        x = width;
-    }
-    if (x2 < -width) {
-        x2 = width;
-    }
+    // run background & check level status
+    levelScroll();
     // add character
     character.show();
     character.move();
@@ -78,7 +132,7 @@ function draw() {
     // then send our array of badguys
     for (let i of enemies) {
         // random millisecond value between 2 & 3k
-        let rando = Math.floor(Math.random() * (3000 - 2000 + 1) + 2000);
+        let rando = Math.floor(Math.random() * (3250 - 2250 + 1) + 2250);
         setTimeout(i.show(), i.move(), rando);
         // if you hit any enemy, kill loop (and trigger whatever events)
         if (character.hits(i)) {
@@ -89,14 +143,13 @@ function draw() {
     }
 };
 
-/* enemy logic: first, random chance at having enemy,
-    adjust < num. (could this be improved?) */
+// enemy logic: first, random chance at having enemy
 function enemyCreator() {
     // random() is p5 method: add more EnemyGround than EnemyAir
-    if (random(0, 1) < 0.008) {
+    if (random(0, 1) < 0.007) {
         enemies.push(new EnemyGround());
     }
-    if (random(0, 1) < 0.004) {
+    if (random(0, 1) < 0.003) {
         enemies.push(new EnemyAir());
     }
 };
