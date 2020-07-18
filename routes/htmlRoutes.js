@@ -169,13 +169,22 @@ module.exports = (app) => {
     });
   });
 
-  app.get("/manager-buttons", (req, res) => {
+  app.get("/home", (req, res) => {
     db.User.findOne({
       where: {
         id: req.user.id
       }
     }).then((data) => {
-      res.render("upgrade-click-buttons", { user: data });
+      res.render("home", { user: data });
+    });
+  });
+  app.get("/game", (req, res) => {
+    db.User.findOne({
+      where: {
+        id: req.user.id
+      }
+    }).then((data) => {
+      res.render("game", { user: data });
     });
   });
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
