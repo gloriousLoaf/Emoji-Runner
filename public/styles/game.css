@@ -12,6 +12,10 @@ nav{
     border-bottom: 2px solid #5f0505;
     box-shadow: 15px 15px 15px #381803;
   }
+
+.navbar a{
+    color:yellow
+}
   
 html, body {
     background-image: url("https://www.freegreatpicture.com/files/147/4706-background-color.jpg"); 
@@ -44,8 +48,3 @@ canvas {
     width: 10rem;
     margin-left: 15px;
 }
-
-footer {
-    color: white;
-    text-align: center;
-  }

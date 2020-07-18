@@ -1,3 +1,7 @@
+.navbar a{
+    color:yellow
+}
+
 .meme-nav-item::after {
     content: ' ';
     display: block;

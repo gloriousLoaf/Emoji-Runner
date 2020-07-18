@@ -6,6 +6,10 @@ body{
   .list-group-item {
     line-height: 2.5;
   }
+
+.navbar a{
+    color:yellow
+}
   
   h2,h1,p,h5 {
       color: whitesmoke;
@@ -81,22 +85,6 @@ body{
   .signup button:hover{
     background-color: lawngreen;
   
-  }
-  
-  @font-face {
-    font-family: Clip;
-    src: url("https://acupoftee.github.io/fonts/Clip.ttf");
-  }
-  /* Keyframe for text animation */
-  .sign {
-    font-family: "Clip";
-    text-transform: uppercase;
-    font-size: 3em;
-    color: #b37b15;
-    text-shadow: 0 0 0.3rem #ffe6ff, 0 0 1.5rem black,
-      -0.2rem 0.1rem 1rem black, 0.2rem 0.1rem 1rem black,
-      0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
-    animation: shine 2s forwards, flicker 3s infinite;
   }
   
   @keyframes blink {

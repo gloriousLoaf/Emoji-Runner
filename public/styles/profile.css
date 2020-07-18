@@ -1,3 +1,7 @@
+.navbar a{
+  color:yellow
+}
+
 .card {
   background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/caput-mortuum-brown-abstract-low-polygon-background-aloysius-patrimonio.jpg");
   border-radius: 30px;
