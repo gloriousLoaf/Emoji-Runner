@@ -1,6 +1,9 @@
 require("dotenv").config();
 const express = require("express");
 const exphbs = require("express-handlebars");
+const Handlebars = require('handlebars')
+const expressHandlebars = require('express-handlebars');
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
 const db = require("./models");
 
@@ -18,7 +21,10 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Handlebars
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine('handlebars', expressHandlebars({
+  handlebars: allowInsecurePrototypeAccess(Handlebars)
+}));
+
 app.set("view engine", "handlebars");
 
 //this portion of code allows us to use passport

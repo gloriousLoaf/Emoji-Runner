@@ -34,7 +34,7 @@
                 <a class="dropdown-item" href="/home">Home<span class="sr-only">(current)</span></a>
                 <a class="dropdown-item" href="/profile">User<b class="font-bold">Profile</b><span
                         class="sr-only">(current)</span></a>
-                <a class="dropdown-item purchased " href="/store">User<b class="font-bold">Library</b><span
+                <a class="dropdown-item purchased " href="/store">User<b class="font-bold">Store</b><span
                         class="sr-only">(current)</span></a>
                 <a class="dropdown-item" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
                 <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false"><b
@@ -53,18 +53,7 @@
             </div>
         </div>
     </div>
-{{!-- 
-    <footer class="footer fixed-bottom text-center">
-        <h5>&copyCopyright 2020 Built From Scratch By David, Chase, Kimya and Maurice</h5>
-    </footer> --}}
 
-    {{!-- these js files are in public folder. to change sprite images
-        and background, adjust the routes in app.js preload() function.
-        all images are in subfolders in public/images, mystic-forest is
-        the only one cropped to the current size of the game window. crop
-        images some, change game window size? to resize the window, see app.js:
-        function setup({ createCanvas(num, num) }) tweak those nums, but this
-        will change game physics, especially for player and flying enemies --}}
 
     <script type="text/javascript" src="./classes/player/character.js"></script>
     <script type="text/javascript" src="./classes/enemies/enemy-ground.js"></script>
