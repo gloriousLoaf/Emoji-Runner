@@ -22,29 +22,51 @@ html, body {
     background-size: cover;
 }
   
-  /* increase top margin from 50 to ?? to make space for logo? */ 
+/* canvas borders */ 
 canvas {
     display: block;
     margin: auto;
     border-radius: 10px;
     border: groove 8px gold;
 }
-  
-#score {
-    margin: 10px 105px 2px 0;
-    margin-right: 105px;
+
+/* level & score id's */ 
+.statsBar {
+    margin: 0 105px;
+    border-radius: 10px;
+    /* background-color: gold; */
+}
+
+#level {
+    margin: 10px 0 2px 110px;
 }
   
-#scoreBlack {
+#score {
+    margin: 10px 110px 2px 0;
+}
+
+#lives {
+    margin: 10px 160px 2px;
+}
+  
+#levelBlack, #scoreBlack, #livesBlack {
     background-color: rgb(25, 0, 0);
     border-radius: 8px;
 }
   
-#scoreboard {
+#levelNum, #scoreboard {
     font-family: Digital;
     color: yellow;
     font-size: 1.5em;
     padding: 4px;
     width: 10rem;
     margin-left: 15px;
+}
+
+#livesNum {
+    font-family: Digital;
+    color: yellow;
+    font-size: 1.5em;
+    padding: 4px;
+    text-align: center;
 }

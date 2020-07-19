@@ -19,6 +19,12 @@ class EnemyGround {
     move() {
         this.x -= 10;
     }
+
+    // for colliding with player
+    hide() {
+        this.x = -width;
+        this.y = -height;
+    }
 }
 
 // p5.js Shapes: https://p5js.org/reference/#group-Shape
