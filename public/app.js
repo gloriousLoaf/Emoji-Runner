@@ -48,24 +48,18 @@ function levelSwitch() {
             backImg = loadImage('./images/backgrounds/pink-mountains.jpg');
             enemyGrImg = loadImage('./images/enemies/robot.gif');
             enemyAirImg = loadImage('./images/enemies/ghost.gif');
-            lev++;
-            i++;
             levelBanner();
             break;
         case (levelCounter >= 19 && levelCounter < 29):
             backImg = loadImage('./images/backgrounds/winter.jpg');
             enemyGrImg = loadImage('./images/enemies/poo.gif');
             enemyAirImg = loadImage('./images/enemies/robot.gif');
-            lev++;
-            i++;
             levelBanner();
             break;
         case (levelCounter >= 29 && levelCounter < 39):
             backImg = loadImage('./images/backgrounds/ocean.jpg');
             enemyGrImg = loadImage('./images/enemies/ghost.gif');
             enemyAirImg = loadImage('./images/enemies/poo.gif');
-            lev++;
-            i++;
             levelBanner();
             break;
         // for now, at 49+ it just keeps playing indefinitely
@@ -73,8 +67,6 @@ function levelSwitch() {
             backImg = loadImage('./images/backgrounds/lava.jpg');
             enemyGrImg = loadImage('./images/enemies/devil.gif');
             enemyAirImg = loadImage('./images/enemies/ghost.gif');
-            lev++;
-            i++;
             levelBanner();
             break;
         /* HERE could trigger win with some function? */
@@ -83,15 +75,15 @@ function levelSwitch() {
         //     break;
         // OR...
         /* RESTART from level one and keep scoring points! */
-        // case (levelCounter >= 49):
-        //     levelCounter = 0;
-        //     backImg = loadImage('./images/backgrounds/mystic-forest.jpg');
-        //     enemyGrImg = loadImage('./images/enemies/devil.gif');
-        //     enemyAirImg = loadImage('./images/enemies/ghost.gif');
-        //     lev = 1;
-        //     i = 0;
-        //     levelBanner();
-        //     break;
+        case (levelCounter >= 49):
+            levelCounter = 0;
+            backImg = loadImage('./images/backgrounds/mystic-forest.jpg');
+            enemyGrImg = loadImage('./images/enemies/devil.gif');
+            enemyAirImg = loadImage('./images/enemies/ghost.gif');
+            lev = 1;
+            i = 0;
+            levelBanner();
+            break;
     }
 };
 
@@ -100,6 +92,12 @@ let lev = 1;
 let i = 0;
 const levMsg = ["Yeah!", "Woo!", "Cool!", "Nice!", "Hot!"];
 function levelBanner() {
+    // every tenth frame scroll, update lev & levMsg fof banner
+    if (levelCounter === 9 || levelCounter === 19 ||
+        levelCounter === 29 || levelCounter === 39) {
+        lev++;
+        i++;
+    }
     let levelNum = select("#levelNum");
     /* the levMsg stuff might be dumb. if cut, also remove let i = 0;
         and the i++; in each switch/case */
@@ -143,6 +141,9 @@ function keyPressed() {
     // spacebar or up arrow jump
     if (key === ` ` || keyCode === UP_ARROW) {
         character.jump()
+        // triggers Jump Sound when space bar is pressed
+        const audio = new Audio('./sounds/jump-fx.mp3');
+        audio.play();
     }
     // fire projectiles??
     if (keyCode === 70) {
