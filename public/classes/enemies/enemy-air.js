@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /* Enemy defines state & ability methods for enemies,
     may need unique classes & files for different types */
 
@@ -27,4 +29,4 @@ class EnemyAir {
     }
 }
 
-    // p5.js Shapes: https://p5js.org/reference/#group-Shape
+// p5.js Shapes: https://p5js.org/reference/#group-Shape

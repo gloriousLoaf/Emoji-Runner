@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /* Enemy defines state & ability methods for enemies,
     may need unique classes & files for different types */
 

@@ -1,4 +1,17 @@
-/* No arrow functions, classes use (this) keyword */
+/* eslint-disable */
+
+/* ESLint hates p5js syntax, especially the undeclared vars and uncalled
+    functions! Leave that comment on line one to disable! */
+
+// loop soundtrack for game
+const beat = new Audio('./sounds/soundtrack.wav');
+// if it ends, reset the playback position to beginning
+beat.addEventListener('ended', function () {
+    this.currentTime = 0.01;
+    this.play();
+}, false);
+// play it!
+beat.play();
 
 // the player, enemies & levels
 let character;
@@ -11,11 +24,11 @@ function preload() {
     /* we can get pretty granular here, preloading images for
         all potential enemies (will need new classes for each) */
     charImg = loadImage('./images/player/smile.gif');
-    enemyGrImg = loadImage('./images/enemies/devil.gif');
-    enemyAirImg = loadImage('./images/enemies/ghost.gif');
+    enemyGrImg = loadImage('./images/enemies/rooster.gif');
+    enemyAirImg = loadImage('./images/enemies/bee.gif');
     backImg = loadImage('./images/backgrounds/mystic-forest.jpg');
     digital = loadFont('./fonts/digital-7.ttf');
-};
+}
 
 /* called first in draw, run backgrounds, check where they are in scroll,
     call levelSwitch() to see when to change */
@@ -46,27 +59,27 @@ function levelSwitch() {
     switch (true) {
         case (levelCounter >= 9 && levelCounter < 19):
             backImg = loadImage('./images/backgrounds/pink-mountains.jpg');
-            enemyGrImg = loadImage('./images/enemies/robot.gif');
-            enemyAirImg = loadImage('./images/enemies/ghost.gif');
+            enemyGrImg = loadImage('./images/enemies/unicorn.gif');
+            enemyAirImg = loadImage('./images/enemies/butterfly.gif');
             levelBanner();
             break;
         case (levelCounter >= 19 && levelCounter < 29):
             backImg = loadImage('./images/backgrounds/winter.jpg');
-            enemyGrImg = loadImage('./images/enemies/poo.gif');
-            enemyAirImg = loadImage('./images/enemies/robot.gif');
+            enemyGrImg = loadImage('./images/enemies/snowman.gif');
+            enemyAirImg = loadImage('./images/enemies/tree.gif');
             levelBanner();
             break;
         case (levelCounter >= 29 && levelCounter < 39):
             backImg = loadImage('./images/backgrounds/ocean.jpg');
-            enemyGrImg = loadImage('./images/enemies/ghost.gif');
-            enemyAirImg = loadImage('./images/enemies/poo.gif');
+            enemyGrImg = loadImage('./images/enemies/whale.gif');
+            enemyAirImg = loadImage('./images/enemies/fish.gif');
             levelBanner();
             break;
         // for now, at 49+ it just keeps playing indefinitely
         case (levelCounter >= 39 && levelCounter < 49):
             backImg = loadImage('./images/backgrounds/lava.jpg');
             enemyGrImg = loadImage('./images/enemies/devil.gif');
-            enemyAirImg = loadImage('./images/enemies/ghost.gif');
+            enemyAirImg = loadImage('./images/enemies/fire.gif');
             levelBanner();
             break;
         /* HERE could trigger win with some function? */
@@ -85,12 +98,12 @@ function levelSwitch() {
             levelBanner();
             break;
     }
-};
+}
 
 // level banner
 let lev = 1;
 let i = 0;
-const levMsg = ["Yeah!", "Woo!", "Cool!", "Nice!", "Hot!"];
+const levMsg = ['Yeah!', 'Woo!', 'Cool!', 'Nice!', 'Hot!'];
 function levelBanner() {
     // every tenth frame scroll, update lev & levMsg fof banner
     if (levelCounter === 9 || levelCounter === 19 ||
@@ -98,7 +111,7 @@ function levelBanner() {
         lev++;
         i++;
     }
-    let levelNum = select("#levelNum");
+    let levelNum = select('#levelNum');
     /* the levMsg stuff might be dumb. if cut, also remove let i = 0;
         and the i++; in each switch/case */
     levelNum.html(`Level ${lev} - ${levMsg[i]}`);
@@ -107,7 +120,7 @@ function levelBanner() {
 // lives banner
 let lives = 3;
 function livesCounter() {
-    let livesNum = select("#livesNum");
+    let livesNum = select('#livesNum');
     livesNum.html(`Lives : ${lives}`)
 }
 
@@ -120,21 +133,21 @@ function setup() {
     runScore = setInterval(scoreCounter, 100);
     // line up our second image, see below
     x2 = width;
-};
+}
 
 
 // scoreboard
 let counter = 0; // send to database at gameover
 function scoreCounter() {
-    let userScore = select("#scoreboard");
+    let userScore = select('#scoreboard');
     counter++;
     userScore.html(counter);
 }
 
-function resetSketch() {
+function saveScore() {
     /* blank for now, future home of more complex functions? like score saving,
         options to redirect to home etc. see playAgain() below */
-};
+}
 
 // player controls
 function keyPressed() {
@@ -149,13 +162,14 @@ function keyPressed() {
     if (keyCode === 70) {
         character.shoot() // not real yet
     }
-};
+}
 
 // vars for background scroll & lives
 let x = 0;
 let x2;
 let scroll = 4;
 // draws the scene in a loop, p5 functionality
+
 function draw() {
     // run background & check level status
     levelScroll();
@@ -173,18 +187,18 @@ function draw() {
         if (character.hits(i)) {
             lives--;
             livesCounter();
+            // impact with enemy
+            const punch = new Audio('./sounds/Sharp-Punch.mp3');
+            punch.play();
             i.hide();
             if (lives === 0) {
                 noLoop();
                 clearInterval(runScore);
                 playAgain();
             }
-            else {
-                // make the got-hit sound? firey explosions??
-            }
         }
     }
-};
+}
 
 // enemy logic: first, random chance at having enemy
 function enemyCreator() {
@@ -195,16 +209,29 @@ function enemyCreator() {
     if (random(0, 1) < 0.003) {
         enemies.push(new EnemyAir());
     }
-};
+}
 
 // temporary death function, use something nice like a Bootstrap modal
 function playAgain() {
-    // modal: OK reloads, Cancel should eventually take user to homescreen
-    if (confirm(`Would you like to play again?`)) {
-        // resetSketch(); make if fancy? just reload for now
+    // on gameover, show BS modal
+    $('#game-over').modal('show');
+    // if player clicks yes, reload the game
+    $('#yes').click(function () {
+        // saveScore();
         location.reload();
-    }
-    else {
+    })
+    // no, go home (or redirect to /profile?)
+    $('#no').click(function () {
+        // saveScore();
         console.log(`Game Over`);
-    }
-};
+        window.location = '/home';
+    })
+    // modal: OK reloads, Cancel should eventually take user to homescreen
+    // if (confirm(`Would you like to play again?`)) {
+    //     // resetSketch(); make if fancy? just reload for now
+    //     location.reload();
+    // }
+    // else {
+    //     console.log(`Game Over`);
+    // }
+}

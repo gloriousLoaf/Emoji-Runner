@@ -7,7 +7,7 @@
     {{!-- p5, p5.collide2d --}}
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5.collide2d@0.7.1/p5.collide2d.min.js"></script>
-    {{!-- stylesheet --}}
+    {{!-- stylesheets - this order is intentional! --}}
     <link rel="stylesheet" href="./styles/game.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
 
@@ -43,7 +43,7 @@
         </div>
     </nav>
 
-
+    {{!-- Game Stats --}}
     <div class="container">
         <div class="row statsBar">
             <div class="col-sm" id="level">
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="col-sm" id="lives">
-                <div class="card mx-auto" id="livesBlack">
+                <div class="card d-flex flex-row mx-auto" id="livesBlack">
                     <div class="card-body" id="livesNum">Lives : 3</div>
                 </div>
             </div>
@@ -64,11 +64,31 @@
         </div>
     </div>
 
+    <!-- Game Over Modal -->
+    <div class="modal fade text-center" id="game-over" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="m-3 text-center">
+                    <h5 class="modal-title">Game Over</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Would you like to play again?</p>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal" id="no">No, take me
+                        home.</button>
+                    <button type="button" class="btn btn-success" id="yes">Yes, let's roll!</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script type="text/javascript" src="./classes/player/character.js"></script>
-    <script type="text/javascript" src="./classes/enemies/enemy-ground.js"></script>
-    <script type="text/javascript" src="./classes/enemies/enemy-air.js"></script>
-    <script type="text/javascript" src="./app.js"></script>
+    <div class="row">
+        <script type="text/javascript" src="./classes/player/character.js"></script>
+        <script type="text/javascript" src="./classes/enemies/enemy-ground.js"></script>
+        <script type="text/javascript" src="./classes/enemies/enemy-air.js"></script>
+        <script type="text/javascript" src="./app.js"></script>
+    </div>
 
 </body>
 
