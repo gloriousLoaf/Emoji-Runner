@@ -5,6 +5,10 @@ let character;
 let enemies = [];
 let backImg;
 let levelCounter = 0;
+const characterBlinkDur = 0.1; // duration in seconds of a single blink during Characters invisibility
+const characterExplode = 0.3; // duration of the Characters explosion in seconds
+const characterInv = 3; // duration of the Characters invisibility in seconds
+
 
 // adjust file name & path for images & uncomment
 function preload() {
@@ -114,7 +118,7 @@ function livesCounter() {
 // setup our game arena
 function setup() {
     // adjust canvas size according to background gif
-    createCanvas(900, 450);
+    createCanvas(1100, 600);
     character = new Character();
     // scoreboard counter in var for start/stop
     runScore = setInterval(scoreCounter, 100);
@@ -173,14 +177,14 @@ function draw() {
         if (character.hits(i)) {
             lives--;
             livesCounter();
+            // impact with enemy
+            const punch = new Audio('./sounds/Sharp-Punch.mp3');
+            punch.play();
             i.hide();
             if (lives === 0) {
                 noLoop();
                 clearInterval(runScore);
                 playAgain();
-            }
-            else {
-                // make the got-hit sound? firey explosions??
             }
         }
     }

@@ -1,33 +1,8 @@
-/* This correspondes to game.handlebars,
-    adjust as needed, make it pretty! */ 
-
-@font-face {
-font-family: Digital;
-src: url('../fonts/digital-7.ttf');
-}
-
-nav{
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border-bottom: 2px solid #5f0505;
-    box-shadow: 15px 15px 15px #381803;
-  }
-
-.navbar a{
-    color:yellow
-}
-  
-html, body {
-    background-image: url("https://www.freegreatpicture.com/files/147/4706-background-color.jpg"); 
-    background-size: cover;
-}
-  
 /* canvas borders */ 
 canvas {
     display: block;
     margin: auto;
     border-radius: 10px;
-    border: groove 8px gold;
 }
 
 /* level & score id's */ 
@@ -55,18 +30,18 @@ canvas {
 }
   
 #levelNum, #scoreboard {
-    font-family: Digital;
+    font-family: Poppins-Medium;
     color: yellow;
-    font-size: 1.5em;
+    font-size: 1.2em;
     padding: 4px;
     width: 10rem;
     margin-left: 15px;
 }
 
 #livesNum {
-    font-family: Digital;
+    font-family: Poppins-Medium;
     color: yellow;
-    font-size: 1.5em;
+    font-size: 1.2em;
     padding: 4px;
     text-align: center;
 }

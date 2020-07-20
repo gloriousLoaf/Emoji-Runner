@@ -5,45 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  {{!-- stylesheet --}}
+    <link href="./styles/style.css" rel="stylesheet">
+    <link href="./styles/main.css" rel="stylesheet">
+    <link href="./styles/util.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/profile.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    {{!-- What are these? --}}
-    {{!-- <script src="https://surveyjs.azureedge.net/1.0.59/survey.jquery.js"></script>
-    <link href="https://surveyjs.azureedge.net/1.0.59/survey.css" type="text/css" rel="stylesheet" /> --}}
-
     <title>Emoji Runner | Profile</title>
 </head>
-
-<body class="container-fluid">
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="navbar navbar-expand-lg navbar-dark justify-content-center">
-            <h1> <img src="https://i.pinimg.com/originals/2f/b0/24/2fb024fb7d3700e80b072b0ad2d2200c.gif" width="50" ,
-                    height="60"></img>
-                <span class="fast-flicker"> Emoji
-                </span>-<span class="flicker"> Runner </span>
-            </h1>
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+<body>
+  <!-- Main Nav -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/home">
+            <img src="./images/Logo.png" style="width:120px;height:70px;">
+            </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav navmenu">
-                <a class="dropdown-item  " href="/home">Home<span class="sr-only">(current)</span></a>
-                <a class="dropdown-item " href="#">User<b class="font-bold">Profile</b><span
-                        class="sr-only">(current)</span></a>
-                <a class="dropdown-item purchased " href="/store">User<b class="font-bold">Store</b><span
-                        class="sr-only">(current)</span></a>
-                <a class="dropdown-item" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
-                <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false"><b
-                        class="runner-email font-semi">{{user.email}}</b><span class="sr-only">(current)</span></a>
-            </div>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+            <a class="nav-link" href="/home">Home
+                    <span class="sr-only">(current)</span>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/store">Store</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
         </div>
+    </div>
     </nav>
 
     <div class="container">
@@ -56,37 +57,36 @@
                 <div class=" col-lg-7">
                     <div class="card">
                         <div class=" card-body">
-                            <p><b class="font-bold">EMAIL:</b> <span
-                                    class="runner-email font-semi">{{user.email}}</span>
-                            </p>
+                            <p></p><b style="color:orange; font-bold">EMAIL:</b>
+                            <p></p><i style="color: #666666;">{{user.email}}</i></p>
                         </div>
                         <hr>
 
                         <div class="card-body">
-                            <p><b class="font-bold">JOINED AT:</b></p>
-                            <p><i>{{user.createdAt}}</i></p>
+                            <p></p><b style="color:orange; font-bold">DATE JOINED:</b>
+                            <p></p><i style="color: #666666;">{{user.createdAt}}</i></p>
                         </div>
                         <hr>
 
                         <div class="card-body">
-                            <p><b class="font-bold">LAST ACTIVE AT:</b></p>
-                            <p><i>{{user.updatedAt}}</i></p>
+                            <p></p><b style="color:orange; font-bold">LAST ACTIVE:</b></p>
+                            <p></p><i style="color: #666666;">{{user.updatedAt}}</i></p>
                         </div>
-                    </div>
+                    </div> 
                 </div>
 
                 <div class="col-lg-5">
                     <div class="card card-profile">
                         <div class="card-body">
                             {{!-- <h5 class="card-title"></h5> --}}
-                            <p class="card-text font-light"><b class="font-bold">WINS:</b> {{user.clickPower}}</p>
+                            <p class="card-text font-light"><b style="color:orange; font-bold">WINS:</b> {{user.clickPower}}</p>
                         </div>
                     </div>
 
                     <div class="card card-profile">
                         <div class="card-body">
                             {{!-- <h5 class="card-title"></h5> --}}
-                            <p class="card-text font-light"><b class="font-bold">GAME LEVEL:</b> {{user.clickPower}}
+                            <p class="card-text font-light"><b style="color:orange; font-bold">GAME LEVEL:</b> {{user.clickPower}}
                             </p>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                     <div class="card card-profile">
                         <div class="card-body">
                             {{!-- <h5 class="card-title"></h5> --}}
-                            <p class="card-text font-light"><b class="font-bold">TOTAL POINTS :</b> {{user.wins}}
+                            <p class="card-text font-light"><b style="color:orange; font-bold">TOTAL POINTS :</b>{{user.wins}}
                                 {{!-- {{user.wins}} --}}
                             </p>
                         </div>
@@ -106,7 +106,7 @@
                         <div class="card-body">
                             {{!-- <h5 class="card-title"></h5> --}}
 
-                            <p class="card-text font-light"><b class="font-bold">???????</b> {{user.loss}}
+                            <p class="card-text font-light"><b style="color:orange; font-bold">???????</b> {{user.loss}}
                                 {{!-- {{user.losses}} --}}
 
                             </p>
@@ -116,12 +116,5 @@
                 </div>
             </div>
 
-            <footer class="footer fixed-bottom text-center text-white">
-                <h5>&copyCopyright 2020 Built From Scratch By David, Chase, Kimya and Maurice</h5>
-            </footer>
-        </div>
-    </div>
-    {{!-- <script src="./js/profile.js"></script> --}}
 </body>
-
 </html>
