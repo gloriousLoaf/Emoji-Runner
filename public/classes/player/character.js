@@ -10,7 +10,7 @@ class Character {
         this.y = height - 110; // slightly off bottom
         this.yVel = 0;
         // adjust gravity & jump(this.yVel) vals
-        this.grav = 2.25;
+        this.grav = 2.15;
     }
 
     // where the circle begins & its diameter
@@ -24,7 +24,7 @@ class Character {
     jump() {
         // if character is on ground, big jump & increment jumpCount
         if (this.y === height - 75) {
-            this.yVel = -32;
+            this.yVel = -33;
             jumpCount++;
         }
         /* doublejump: if in the air & count is 1,

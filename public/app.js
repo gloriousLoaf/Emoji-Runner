@@ -70,7 +70,7 @@ function levelSwitch() {
         case (levelCounter >= 19 && levelCounter < 29):
             backImg = loadImage('./images/backgrounds/winter.jpg');
             enemyGrImg = loadImage('./images/enemies/snowman.gif');
-            enemyAirImg = loadImage('./images/enemies/tree.gif');
+            enemyAirImg = loadImage('./images/enemies/coldface.gif');
             levelBanner();
             break;
         case (levelCounter >= 29 && levelCounter < 39):
@@ -150,7 +150,7 @@ function scoreCounter() {
 
 // called by playAgain() - send score to database
 function StoreUserData(score, level) {
-    var runner = {
+    let runner = {
         score: score,
         lvl: level
     }
@@ -210,6 +210,9 @@ function draw() {
             if (lives === 0) {
                 noLoop();
                 clearInterval(runScore);
+                beat.pause();
+                const dead = new Audio('./sounds/gameover.wav');
+                dead.play();
                 playAgain();
             }
         }

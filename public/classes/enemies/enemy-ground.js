@@ -17,7 +17,7 @@ class EnemyGround {
 
     // adjust speed as needed
     move() {
-        this.x -= 10;
+        this.x -= 11;
     }
 
     // for colliding with player

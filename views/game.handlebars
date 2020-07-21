@@ -8,7 +8,6 @@
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5.collide2d@0.7.1/p5.collide2d.min.js"></script>
     {{!-- stylesheet --}}
-    {{!-- <link rel="stylesheet" href="./styles/game.css"> --}}
     <link href="./styles/style.css" rel="stylesheet">
     <link href="./styles/main.css" rel="stylesheet">
     <link href="./styles/util.css" rel="stylesheet">
@@ -19,7 +18,7 @@
 </head>
 
 <body>
-    <!-- Main Nav -->
+    {{!-- Main Nav --}}
     <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
         <div class="container">
             <a class="navbar-brand" href="/home">
@@ -54,7 +53,7 @@
     <br>
 
     {{!--Game Stats --}}
-    <div class="container-fluid">
+    {{!-- <div class="container-fluid">
         <div class="row statsBar">
             <div class="col" id="level">
                 <div class="card d-flex flex-row float-left" id="levelBlack">
@@ -72,9 +71,18 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="card gameStats" id="level">
+                <span class="m-5" id="levelNum">Level 1 : Go!</span><span class="m-5" id="livesNum">Lives :
+                    3</span> <span class="m-5" id="scoreboard">Score</span>
+            </div>
+        </div>
     </div>
 
-    <!-- Game Over Modal -->
+
+    {{!-- Game Over Modal --}}
     <div class="modal fade text-center" id="game-over" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -92,6 +100,8 @@
             </div>
         </div>
     </div>
+
+
 
     <script type="text/javascript" src="./classes/player/character.js"></script>
     <script type="text/javascript" src="./classes/enemies/enemy-ground.js"></script>

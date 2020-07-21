@@ -6,7 +6,7 @@ class EnemyAir {
         // size of underlying circle, adjust as needed
         this.circ = 40;
         this.x = width;
-        this.y = 380; // adjust height, lower num = higher on screen
+        this.y = 390; // adjust height, lower num = higher on screen
     }
 
     // begins off right edge
@@ -17,7 +17,7 @@ class EnemyAir {
 
     // adjust speed as needed
     move() {
-        this.x -= 7;
+        this.x -= 8;
     }
 
     // for colliding with player

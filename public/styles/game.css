@@ -5,53 +5,18 @@ canvas {
     border-radius: 10px;
 }
 
-/* level & score id's */ 
-.statsBar {
-    margin: 0 105px;
-    border-radius: 10px;
-    /* background-color: gold; */
-}
-
-#level {
-    margin: 10px 0 2px 110px;
-}
-  
-#score {
-    margin: 10px 110px 2px 0;
-}
-
-#lives {
-    margin: 10px 160px 2px;
-}
-  
-#levelBlack, #scoreBlack, #livesBlack {
+.gameStats {
     background-color: rgb(25, 0, 0);
     border-radius: 8px;
+    width: 600px; /* says its being overridden but its def. not */ 
+    display: inline !important;
+    -ms-display: inline;
 }
   
-#levelNum, #scoreboard {
-    font-family: Poppins-Medium;
-    color: yellow;
-    font-size: 1.2em;
-    padding: 4px;
-    width: 10rem;
-    margin-left: 15px;
-}
-
-#livesNum {
+#levelNum, #scoreboard, #livesNum {
     font-family: Poppins-Medium;
     color: yellow;
     font-size: 1.2em;
     padding: 4px;
     text-align: center;
-}
-
-/* Small Screens - rearrange the Game Stats */ 
-@media(max-width: 560px) {
-    #level, #lives, #score {
-        /* float: none; */
-        /* margin-left: auto;
-        margin-right: auto; */
-        display: inline-flexbox;
-    }
 }
