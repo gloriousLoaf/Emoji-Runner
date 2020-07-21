@@ -66,4 +66,9 @@ module.exports = (app) => {
       res.render("home", { user: data });
     });
   });
+
+  //this will load the login page, if they do not have an account, we can redirect them to the sign up page
+  app.get("/forgot", (req, res) => {
+    res.render("forgot");
+  });
 };

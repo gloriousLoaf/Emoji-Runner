@@ -9,7 +9,6 @@ module.exports = (app) => {
 
     //sent back the current logged in users data
     const user = {
-      isManager: req.user.isManager,
       id: req.user.id
     };
     res.json(user);

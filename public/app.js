@@ -95,8 +95,8 @@ function levelSwitch() {
         case (levelCounter >= 49):
             levelCounter = 0;
             backImg = loadImage('./images/backgrounds/mystic-forest.jpg');
-            enemyGrImg = loadImage('./images/enemies/devil.gif');
-            enemyAirImg = loadImage('./images/enemies/ghost.gif');
+            enemyGrImg = loadImage('./images/enemies/rooster.gif');
+            enemyAirImg = loadImage('./images/enemies/bee.gif');
             lev = 1;
             i = 0;
             levelBanner();
@@ -149,10 +149,10 @@ function scoreCounter() {
 }
 
 // called by playAgain() - send score to database
-function StoreUserData() {
+function StoreUserData(score, level) {
     var runner = {
-        score: $("#scoreboard").val(),
-        lvl: $("#levelNum").val()
+        score: score,
+        lvl: level
     }
     $.ajax({
         method: "PUT",
@@ -234,14 +234,14 @@ function playAgain() {
     // if player clicks yes, reload the game
     $('#yes').click(function () {
         console.log(counter);
-        StoreUserData();
+        // StoreUserData(counter, lev);
         location.reload();
     });
     // no, go home (or redirect to /profile?)
     $('#no').click(function () {
         console.log(`Game Over`);
         console.log(counter);
-        StoreUserData();
+        StoreUserData(counter, lev);
         window.location = '/home';
     });
 };

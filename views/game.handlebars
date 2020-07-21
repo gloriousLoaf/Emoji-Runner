@@ -8,11 +8,12 @@
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5.collide2d@0.7.1/p5.collide2d.min.js"></script>
     {{!-- stylesheet --}}
-    <link rel="stylesheet" href="./styles/game.css">
+    {{!-- <link rel="stylesheet" href="./styles/game.css"> --}}
     <link href="./styles/style.css" rel="stylesheet">
     <link href="./styles/main.css" rel="stylesheet">
     <link href="./styles/util.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/game.css">
 
     <title>Emoji Runner | Game</title>
 </head>
@@ -53,19 +54,19 @@
     <br>
 
     {{!--Game Stats --}}
-    <div class="container">
+    <div class="container-fluid">
         <div class="row statsBar">
-            <div class="col-sm" id="level">
+            <div class="col" id="level">
                 <div class="card d-flex flex-row float-left" id="levelBlack">
                     <div class="card-body" id="levelNum">Level 1 : Go!</div>
                 </div>
             </div>
-            <div class="col-sm" id="lives">
+            <div class="col" id="lives">
                 <div class="card mx-auto" id="livesBlack">
                     <div class="card-body" id="livesNum">Lives : 3</div>
                 </div>
             </div>
-            <div class="col-sm" id="score">
+            <div class="col" id="score">
                 <div class="card d-flex flex-row float-right" id="scoreBlack">
                     <div class="card-body" id="scoreboard">Score</div>
                 </div>
