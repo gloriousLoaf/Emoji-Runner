@@ -15,23 +15,15 @@ module.exports = (app) => {
     res.json(user);
   });
 
-  //this route is for storing into the database new memes
-  app.post("/api/manager", (req, res) => {
-    //send this data to the meme table
-    db.Memes.create(req.body).then((data) => {
+  // user game
+  app.post("/api/game", (req, res) => {
+    db.User.create(req.body).then((data) => {
       res.json(data);
     });
   });
 
-  //a get route for the memes
-  app.get("/api/manager", (req, res) => {
-    db.Memes.findAll({}).then((data) => {
-      res.json(data);
-    });
-  });
-
-  //sends back the currently signed in user
-  app.get("/api/user/id", (req, res) => {
+  // attach user to game
+  app.get("/api/game", (req, res) => {
     db.User.findAll({
       where: {
         id: req.user.id
@@ -41,43 +33,12 @@ module.exports = (app) => {
     });
   });
 
-  /* BELOW SECTION REFERENCING MEMES COULD BE REWORKED FOR OUR STORE FEATURES */
-
-  // grab the meme for battle, will attach this to a button on the purchased page.
-  app.get("/api/user/memes/:id", (req, res) => {
-    db.Boughten_Memes.findOne({
-      where: {
-        UserId: req.user.id,
-        id: req.params.id
-      }
-    }).then((data) => {
-      res.json(data);
-    });
-  });
-
-  //deletes the meme on lose condition
-  app.delete("/api/user/memes/:id", (req, res) => {
-    db.Boughten_Memes.destroy({
-      where: {
-        UserId: req.user.id,
-        id: req.params.id
-      }
-    }).then((data) => {
-      res.json(data);
-    });
-  });
-
-  //allows us to update which meme belongs to a signed in account
-  app.post("/api/user/id", (req, res) => {
-    db.Boughten_Memes.create(req.body).then((data) => {
-      res.json(data);
-    });
-  });
   //allows us to update the currently signed in users points
-  app.put("/api/user/id", (req, res) => {
+  app.put("/api/game", (req, res) => {
     db.User.update(
       {
-        points: req.body.points
+        score: req.body.score,
+        lvl: req.body.lvl,
       },
       {
         where: {
@@ -92,99 +53,5 @@ module.exports = (app) => {
   app.get("/logout", (req, res) => {
     req.logout();
     res.redirect("/");
-  });
-
-  app.get("/api/get-current-power", (req, res) => {
-    db.User.findAll({
-      where: {
-        id: req.user.id
-      }
-    }).then((data) => {
-      res.json(data);
-    });
-  });
-  app.get("/api/get-current-user-points", (req, res) => {
-    db.User.findAll({
-      where: {
-        id: req.user.id
-      }
-    }).then((data) => {
-      res.json(data);
-    });
-  });
-
-  //all the api's for upgrading click
-  app.get("/upgrade-click", (req, res) => {
-    db.PurchasedClickerUpgrades.findAll({
-      where: {
-        UserId: req.user.id
-      }
-    }).then((data) => {
-      res.json(data);
-    });
-  });
-  app.post("/upgrade-click", (req, res) => {
-    db.PurchasedClickerUpgrades.create(req.body).then((data) => {
-      res.json(data);
-    });
-  });
-  //this route handles upgrading the click power
-  app.put("/upgrade-click", (req, res) => {
-    db.User.update(
-      {
-        clickPower: req.body.clickPower,
-        points: req.body.points,
-        tokensPerClick: req.body.tokensPerClick
-      },
-      {
-        where: {
-          id: req.user.id
-        }
-      }
-    ).then((data) => {
-      res.json(data);
-    });
-  });
-
-  //this will return the last upgrade button so we can auto increment every time future buttons are
-  //added by the manager, this helps with the purchasing algorithm
-  app.get("/api/manager-click-check", (req, res) => {
-    db.ClickerUpgrades.findAll({
-      limit: 1,
-      order: [["clickPower", "DESC"]]
-    }).then((data) => {
-      res.json(data);
-    });
-  });
-  //creates a new upgradable button
-  app.post("/api/manager-click-check", (req, res) => {
-    db.ClickerUpgrades.create(req.body).then((data) => {
-      res.json(data);
-    });
-  });
-
-  app.get("/user/level", (req, res) => {
-    db.User.findOne({
-      where: {
-        id: req.user.id
-      }
-    }).then((data) => {
-      res.json(data[0].lvl);
-    });
-  });
-
-  app.put("/api/user/avatar", (req, res) => {
-    db.User.update(
-      {
-        avatar: req.body.avatar
-      },
-      {
-        where: {
-          id: req.user.id
-        }
-      }
-    ).then((data) => {
-      res.json(data);
-    });
   });
 };

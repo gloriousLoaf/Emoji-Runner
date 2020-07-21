@@ -1,4 +1,17 @@
-/* No arrow functions, classes use (this) keyword */
+/* eslint-disable */
+
+/* ESLint hates p5js syntax, especially the undeclared vars and uncalled
+    functions! Leave that comment on line 1 to disable! */
+
+// loop soundtrack for game
+const beat = new Audio('./sounds/soundtrack.wav');
+// if it ends, reset the playback position to beginning
+beat.addEventListener('ended', function () {
+    this.currentTime = 0.01;
+    this.play();
+}, false);
+// play it!
+beat.play();
 
 // the player, enemies & levels
 let character;
@@ -15,8 +28,8 @@ function preload() {
     /* we can get pretty granular here, preloading images for
         all potential enemies (will need new classes for each) */
     charImg = loadImage('./images/player/smile.gif');
-    enemyGrImg = loadImage('./images/enemies/devil.gif');
-    enemyAirImg = loadImage('./images/enemies/ghost.gif');
+    enemyGrImg = loadImage('./images/enemies/rooster.gif');
+    enemyAirImg = loadImage('./images/enemies/bee.gif');
     backImg = loadImage('./images/backgrounds/mystic-forest.jpg');
     digital = loadFont('./fonts/digital-7.ttf');
 };
@@ -50,27 +63,27 @@ function levelSwitch() {
     switch (true) {
         case (levelCounter >= 9 && levelCounter < 19):
             backImg = loadImage('./images/backgrounds/pink-mountains.jpg');
-            enemyGrImg = loadImage('./images/enemies/robot.gif');
-            enemyAirImg = loadImage('./images/enemies/ghost.gif');
+            enemyGrImg = loadImage('./images/enemies/unicorn.gif');
+            enemyAirImg = loadImage('./images/enemies/butterfly.gif');
             levelBanner();
             break;
         case (levelCounter >= 19 && levelCounter < 29):
             backImg = loadImage('./images/backgrounds/winter.jpg');
-            enemyGrImg = loadImage('./images/enemies/poo.gif');
-            enemyAirImg = loadImage('./images/enemies/robot.gif');
+            enemyGrImg = loadImage('./images/enemies/snowman.gif');
+            enemyAirImg = loadImage('./images/enemies/tree.gif');
             levelBanner();
             break;
         case (levelCounter >= 29 && levelCounter < 39):
             backImg = loadImage('./images/backgrounds/ocean.jpg');
-            enemyGrImg = loadImage('./images/enemies/ghost.gif');
-            enemyAirImg = loadImage('./images/enemies/poo.gif');
+            enemyGrImg = loadImage('./images/enemies/whale.gif');
+            enemyAirImg = loadImage('./images/enemies/fish.gif');
             levelBanner();
             break;
         // for now, at 49+ it just keeps playing indefinitely
         case (levelCounter >= 39 && levelCounter < 49):
             backImg = loadImage('./images/backgrounds/lava.jpg');
             enemyGrImg = loadImage('./images/enemies/devil.gif');
-            enemyAirImg = loadImage('./images/enemies/ghost.gif');
+            enemyAirImg = loadImage('./images/enemies/fire.gif');
             levelBanner();
             break;
         /* HERE could trigger win with some function? */
@@ -89,7 +102,7 @@ function levelSwitch() {
             levelBanner();
             break;
     }
-};
+}
 
 // level banner
 let lev = 1;
@@ -135,10 +148,23 @@ function scoreCounter() {
     userScore.html(counter);
 }
 
-function resetSketch() {
-    /* blank for now, future home of more complex functions? like score saving,
-        options to redirect to home etc. see playAgain() below */
-};
+// called by playAgain() - send score to database
+function StoreUserData() {
+    var runner = {
+        score: $("#scoreboard").val(),
+        lvl: $("#levelNum").val()
+    }
+    $.ajax({
+        method: "PUT",
+        url: "/api/game",
+        data: runner
+    }).then(function () {
+        window.location.href = "/profile";
+        setTimeout(function () {
+            location.reload();
+        }, 1000);
+    });
+}
 
 // player controls
 function keyPressed() {
@@ -203,12 +229,19 @@ function enemyCreator() {
 
 // temporary death function, use something nice like a Bootstrap modal
 function playAgain() {
-    // modal: OK reloads, Cancel should eventually take user to homescreen
-    if (confirm(`Would you like to play again?`)) {
-        // resetSketch(); make if fancy? just reload for now
+    // on gameover, show BS modal
+    $('#game-over').modal('show');
+    // if player clicks yes, reload the game
+    $('#yes').click(function () {
+        console.log(counter);
+        StoreUserData();
         location.reload();
-    }
-    else {
+    });
+    // no, go home (or redirect to /profile?)
+    $('#no').click(function () {
         console.log(`Game Over`);
-    }
+        console.log(counter);
+        StoreUserData();
+        window.location = '/home';
+    });
 };
