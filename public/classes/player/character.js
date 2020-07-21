@@ -26,12 +26,16 @@ class Character {
         if (this.y === height - 75) {
             this.yVel = -33;
             jumpCount++;
+            const audio = new Audio('./sounds/jump-fx.mp3');
+            audio.play();
         }
         /* doublejump: if in the air & count is 1,
             little jump then reset count */
         else if (this.y < height - this.circ && this.y > 0 && jumpCount >= 1) {
             this.yVel = -20;
             jumpCount = 0;
+            const audio = new Audio('./sounds/jump-fx.mp3');
+            audio.play();
         }
     }
 

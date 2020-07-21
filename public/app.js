@@ -4,10 +4,10 @@
     functions! Leave that comment on line 1 to disable! */
 
 // loop soundtrack for game
-const beat = new Audio('./sounds/soundtrack.wav');
+const beat = new Audio('./sounds/soundtrack.mp3');
 // if it ends, reset the playback position to beginning
 beat.addEventListener('ended', function () {
-    this.currentTime = 0.01;
+    this.currentTime = 0.14;
     this.play();
 }, false);
 // play it!
@@ -172,8 +172,8 @@ function keyPressed() {
     if (key === ` ` || keyCode === UP_ARROW) {
         character.jump()
         // triggers Jump Sound when space bar is pressed
-        const audio = new Audio('./sounds/jump-fx.mp3');
-        audio.play();
+        // const audio = new Audio('./sounds/jump-fx.mp3');
+        // audio.play();
     }
     // fire projectiles??
     if (keyCode === 70) {
