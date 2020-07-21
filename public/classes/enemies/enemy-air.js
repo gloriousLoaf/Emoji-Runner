@@ -6,7 +6,7 @@ class EnemyAir {
         // size of underlying circle, adjust as needed
         this.circ = 40;
         this.x = width;
-        this.y = 260; // adjust height, lower num = higher on screen
+        this.y = 380; // adjust height, lower num = higher on screen
     }
 
     // begins off right edge
