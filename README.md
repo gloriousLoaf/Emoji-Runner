@@ -51,9 +51,6 @@ Kimya Fallah, Maurice Chouamou, Chase Johnson and David Metcalf
 
 <p>&nbsp;</p>
 
-## YouTube
-**Quick demo video coming soon:** (https://youtu.be/)
-
 ---
 
 ##### This markdown was created with [Readme Generator](https://github.com/gloriousLoaf/Readme-Generator)
