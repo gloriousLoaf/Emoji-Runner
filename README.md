@@ -11,7 +11,6 @@ A classic runner game using MySQl, Node, Express, Handlebars & Sequelizer.
 * [License](#-license)
 * [Contributors](#-contributors)
 * [Questions](#-questions)
-* [YouTube](#-youtube)
 <p>&nbsp;</p>
 
 ## Description
