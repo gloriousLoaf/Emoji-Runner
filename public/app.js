@@ -31,7 +31,6 @@ function preload() {
     enemyGrImg = loadImage('./images/enemies/rooster.gif');
     enemyAirImg = loadImage('./images/enemies/bee.gif');
     backImg = loadImage('./images/backgrounds/mystic-forest.jpg');
-    digital = loadFont('./fonts/digital-7.ttf');
 };
 
 /* called first in draw, run backgrounds, check where they are in scroll,

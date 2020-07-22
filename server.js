@@ -3,6 +3,7 @@ const express = require("express");
 const Handlebars = require('handlebars')
 const expressHandlebars = require('express-handlebars');
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
+const path = require('path');
 
 const db = require("./models");
 
@@ -18,6 +19,7 @@ const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+// app.use(express.static(path.join(__dirname, '/public')));
 
 // Handlebars
 app.engine('handlebars', expressHandlebars({

@@ -42,7 +42,6 @@ $(document).ready(function () {
       })
       .catch(function (err) {
         if (err.status == 401) {
-          alert("INCORRECT OR UNKNOWN EMAIL/PASSWORD COMBINATION. PLEASE TRY AGAIN OR MAKE A NEW ACCOUNT.");
         }
       });
   }
