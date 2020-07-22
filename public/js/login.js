@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Getting references to our form and inputs
   var loginForm = $("form.login");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
 
   // When the form is submitted, we validate there's an email and password entered
-  loginForm.on("submit", function(event) {
+  loginForm.on("submit", function (event) {
     event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
@@ -28,12 +28,21 @@ $(document).ready(function() {
       email: email,
       password: password
     })
-      .then(function() {
-        window.location.replace("/profil");
+      .then(function (user) {
+        //  console.log(user);
+        //if the user that signs in is a manager redirect them to manager page
+        if (user.isManager === true) {
+          window.location.assign("/manager");
+        } else {
+          //if they are not a manager redirect them to regular home page
+          window.location.assign("/home");
+        }
+
         // If there's an error, log the error
       })
-      .catch(function(err) {
-        console.log(err);
+      .catch(function (err) {
+        if (err.status == 401) {
+        }
       });
   }
 });
