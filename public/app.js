@@ -118,7 +118,7 @@ function levelBanner() {
     let levelNum = select("#levelNum");
     /* the levMsg stuff might be dumb. if cut, also remove let i = 0;
         and the i++; in each switch/case */
-    levelNum.html(`Level ${lev} - ${levMsg[i]}`);
+    levelNum.html(`Level ${lev} : ${levMsg[i]}`);
 }
 
 // lives banner
