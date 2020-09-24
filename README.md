@@ -46,7 +46,7 @@ Clone this repo to your local machine, navigate to the Emoji-Runner folder and r
 ---
 <p>&nbsp;</p>
 
-## ⚖️ License
+## 📜 License
 **MIT** • *(If you fork and recreate this, please be kind and rebrand your version!)*
 <p>&nbsp;</p>
 
