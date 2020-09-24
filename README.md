@@ -30,12 +30,12 @@ Clone this repo to your local machine, navigate to the Emoji-Runner folder and r
 <p>&nbsp;</p>
 
 ## 📷 Images
-<img src="https://github.com/gloriousLoaf/Emoji-Runner/blob/master/readme-imgs/emoji-login.png" alt="Emoji Runner, login" height="300">
+<img src="https://github.com/gloriousLoaf/Emoji-Runner/blob/main/readme-imgs/emoji-login.png" alt="Emoji Runner, login" height="300">
 <p>&nbsp;</p>
-<img src="https://github.com/gloriousLoaf/Emoji-Runner/blob/master/readme-imgs/emoji-play.png" alt="Emoji Runner, game play" height="400">
+<img src="https://github.com/gloriousLoaf/Emoji-Runner/blob/main/readme-imgs/emoji-play.png" alt="Emoji Runner, game play" height="400">
 <p>&nbsp;</p>
 **Coming Soon!**
-<img src="https://github.com/gloriousLoaf/Emoji-Runner/blob/master/readme-imgs/emoji-store.png" alt="Emoji Runner, store" height="325">
+<img src="https://github.com/gloriousLoaf/Emoji-Runner/blob/main/readme-imgs/emoji-store.png" alt="Emoji Runner, store" height="325">
 <p>&nbsp;</p>
 
 ## 🔮 Future Development
