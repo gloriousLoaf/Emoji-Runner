@@ -46,7 +46,7 @@ Clone this repo to your local machine, navigate to the Emoji-Runner folder and r
 ---
 <p>&nbsp;</p>
 
-## 👩‍⚖️ License
+## ⚖️ License
 **MIT** • *(If you fork and recreate this, please be kind and rebrand your version!)*
 <p>&nbsp;</p>
 
@@ -55,7 +55,7 @@ Clone this repo to your local machine, navigate to the Emoji-Runner folder and r
 * [MySQL](https://www.mysql.com/), [Express](https://expressjs.com/) and [Node](https://nodejs.org/)
 * [Passport](http://www.passportjs.org/) and [bcryptjs](https://www.npmjs.com/package/bcryptjs) for authentication.
 
-## 🤾‍♂️ Contributors
+## 🏀 Contributors
 * [David Metcalf](https://github.com/gloriousLoaf) 
 * [Kimya Fallah](https://github.com/kimyaf)
 * [Maurice Chouamou](https://github.com/mauricechouam)
