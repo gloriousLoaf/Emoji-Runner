@@ -1,6 +1,6 @@
 /* USER MODEL */
-import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
 const userSchema = mongoose.Schema(
   {
@@ -17,11 +17,11 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    isAdmin: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
+    // isAdmin: {
+    //   type: Boolean,
+    //   required: true,
+    //   default: false,
+    // },
   },
   {
     timestamps: true,
@@ -34,15 +34,15 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
 };
 
 // middleware - salting presave
-userSchema.pre('save', async function (next) {
+userSchema.pre("save", async function (next) {
   // do not rehash if not modified
-  if (!this.isModified('password')) {
+  if (!this.isModified("password")) {
     next();
   }
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 export default User;
