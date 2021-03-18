@@ -1,62 +1,58 @@
-require("dotenv").config();
-const express = require("express");
-const Handlebars = require('handlebars')
-const expressHandlebars = require('express-handlebars');
-const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
-const path = require('path');
+/* SERVER */
+import express from "express";
+import Handlebars from "handlebars";
+import expressHandlebars from "express-handlebars";
+import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
+import dotenv from "dotenv";
+import colors from "colors";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
+import connectDB from "./config/db.js";
+import userRoutes from "./routes/userRoutes.js";
+import * as apiRoutes from "./routes/apiRoutes.js";
+import * as htmlRoutes from "./routes/htmlRoutes.js";
 
-const db = require("./models");
+dotenv.config();
 
-//this portion of code allows us to use passport
-const passport = require("./config/passport");
-const session = require("express-session");
-//^^^^^
+connectDB();
 
 const app = express();
-const PORT = process.env.PORT || 8080;
 
-// Middleware
-app.use(express.urlencoded({ extended: true }));
+process.env.NODE_ENV === "development";
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-// app.use(express.static(path.join(__dirname, '/public')));
 
-// Handlebars
-app.engine('handlebars', expressHandlebars({
-  handlebars: allowInsecurePrototypeAccess(Handlebars)
-}));
+// routes
+app.use("/api/users", userRoutes);
+// require("./routes/apiRoutes")(app);
+// require("./routes/htmlRoutes")(app);
+app.use("/api/apiRoutes", apiRoutes);
+app.use("/api/htmlRoutes", htmlRoutes);
+
+// handlebars
+app.engine(
+  "handlebars",
+  expressHandlebars({
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
+  })
+);
 
 app.set("view engine", "handlebars");
 
-//this portion of code allows us to use passport
-app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-);
-app.use(passport.initialize());
-app.use(passport.session());
-//^^^^^^^^^^^^^^^^^^^^
+// middleware
+app.use(notFound);
+app.use(errorHandler);
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+const PORT = process.env.PORT || 3000;
 
-var syncOptions = { force: false };
-
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
-
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(() => {
-  app.listen(PORT, () => {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+app.get("/", (req, res) => {
+  res.send("API is running.");
 });
 
-module.exports = app;
+app.listen(
+  PORT,
+  console.log(
+    `Server running in ${process.env.NODE_ENV} on port ${PORT}`.yellow.bold
+  )
+);

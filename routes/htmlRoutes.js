@@ -1,13 +1,12 @@
-const db = require("../models");
+import { User } from "../models";
 
-module.exports = (app) => {
-
+export default (app) => {
   //this portion of code is for passport to work
   app.post("/signup", (req, res) => {
-    db.User.create({
+    User.create({
       email: req.body.email,
       password: req.body.password,
-      isManager: req.body.isManager
+      isManager: req.body.isManager,
     }).then((data) => {
       res.json(data);
     });
@@ -25,10 +24,10 @@ module.exports = (app) => {
 
   // the game!
   app.get("/game", (req, res) => {
-    db.User.findOne({
+    User.findOne({
       where: {
-        id: req.user.id
-      }
+        id: req.user.id,
+      },
     }).then((data) => {
       res.render("game", { user: data });
     });
@@ -36,10 +35,10 @@ module.exports = (app) => {
 
   // store
   app.get("/store", (req, res) => {
-    db.User.findOne({
+    User.findOne({
       where: {
-        id: req.user.id
-      }
+        id: req.user.id,
+      },
     }).then((data) => {
       res.render("store", { user: data });
     });
@@ -47,10 +46,10 @@ module.exports = (app) => {
 
   // profile
   app.get("/profile", (req, res) => {
-    db.User.findOne({
+    User.findOne({
       where: {
-        id: req.user.id
-      }
+        id: req.user.id,
+      },
     }).then((data) => {
       res.render("profile", { user: data });
     });
@@ -58,10 +57,10 @@ module.exports = (app) => {
 
   // home
   app.get("/home", (req, res) => {
-    db.User.findOne({
+    User.findOne({
       where: {
-        id: req.user.id
-      }
+        id: req.user.id,
+      },
     }).then((data) => {
       res.render("home", { user: data });
     });

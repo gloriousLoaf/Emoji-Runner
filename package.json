@@ -1,30 +1,44 @@
 {
-  "name": "game-demo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "name": "emoji-runner",
+  "version": "2.0.0",
+  "description": "Emoji Runner JavaScript-powered browser game.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gloriousLoaf/Emoji-Runner.git"
+  },
+  "keywords": [
+    "MERN",
+    "React",
+    "ecommerce"
+  ],
+  "author": "David Metcalf, Maurice Chouamou, CHase Johnson, Kimya Fallah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gloriousLoaf/Emoji-Runner/issues"
+  },
+  "homepage": "https://github.com/gloriousLoaf/Emoji-Runner#readme",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
     "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
     "express-handlebars": "^5.1.0",
-    "express-session": "^1.17.1",
-    "mysql2": "^2.1.0",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
     "handlebars": "^4.7.6",
-    "sequelize": "^6.3.3"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.0"
   },
   "devDependencies": {
     "eslint": "^7.5.0",
-    "handlebars": "^4.7.6"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "handlebars": "^4.7.6",
+    "nodemon": "^2.0.6"
+  }
 }

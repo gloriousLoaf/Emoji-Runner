@@ -1,32 +1,19 @@
-const db = require("../models");
+import { User } from "../models";
 
-const passport = require("../config/passport");
-
-module.exports = (app) => {
-  //this portion of code is all for passport to work
-
-  app.post("/api/login", passport.authenticate("local"), (req, res) => {
-
-    //sent back the current logged in users data
-    const user = {
-      id: req.user.id
-    };
-    res.json(user);
-  });
-
+export default (app) => {
   // user game
   app.post("/api/game", (req, res) => {
-    db.User.create(req.body).then((data) => {
+    User.create(req.body).then((data) => {
       res.json(data);
     });
   });
 
   // attach user to game
   app.get("/api/game", (req, res) => {
-    db.User.findAll({
+    User.findAll({
       where: {
-        id: req.user.id
-      }
+        id: req.user.id,
+      },
     }).then((data) => {
       res.json(data);
     });
@@ -34,15 +21,15 @@ module.exports = (app) => {
 
   //allows us to update the currently signed in users points
   app.put("/api/game", (req, res) => {
-    db.User.update(
+    User.update(
       {
         score: req.body.score,
         lvl: req.body.lvl,
       },
       {
         where: {
-          id: req.user.id
-        }
+          id: req.user.id,
+        },
       }
     ).then((data) => {
       res.json(data);
