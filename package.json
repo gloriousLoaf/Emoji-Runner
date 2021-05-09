@@ -13,12 +13,12 @@
     "mysql2": "^2.1.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "handlebars": "^4.7.6",
+    "handlebars": "^4.7.7",
     "sequelize": "^6.3.3"
   },
   "devDependencies": {
     "eslint": "^7.5.0",
-    "handlebars": "^4.7.6"
+    "handlebars": "^4.7.7"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
